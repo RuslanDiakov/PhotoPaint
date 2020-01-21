@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,6 +43,28 @@ namespace PhotoPaint
             hatchStyle = HatchStyle.Percent50;
 
             TextureBmp = "C:\\Users\\Core00\\Documents\\Untitled.png";
+
+            if (DrawPanel.Width < this.Width)
+            {
+                hScrollBar1.Hide();
+            }
+            else
+            {
+                hScrollBar1.Show();
+                int r = DrawPanel.Width - this.Width;
+                hScrollBar1.Maximum = r;
+            }
+
+            if (DrawPanel.Height < this.Height)
+            {
+                vScrollBar1.Hide();
+            }
+            else
+            {
+                vScrollBar1.Show();
+                int r = DrawPanel.Height - this.Height;
+                vScrollBar1.Maximum = r;
+            }
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -84,7 +107,7 @@ namespace PhotoPaint
         }
 
         private void toolStripButton_PenFillGradient_Click(object sender, EventArgs e)
-        {           
+        {
             var f = new FillGradient();
             f.mother = this;
             if (f.ShowDialog() != DialogResult.OK) return;
@@ -153,9 +176,9 @@ namespace PhotoPaint
             }
             catch (Exception)
             {
-                MessageBox.Show("Ввотите только цифры\nПример: 0.5 1 45 100","Error");
+                MessageBox.Show("Ввотите только цифры\nПример: 0.5 1 45 100", "Error");
                 return;
-            } 
+            }
         }
         #endregion
 
@@ -281,7 +304,7 @@ namespace PhotoPaint
                     if (DrawingModel.getInstance().GetLast() == null) break;
                     //toolStripButton_createEllipse.BackColor = Color.Yellow;
                     DrawingModel.getInstance().GetLast().endX = e.X;
-                    DrawingModel.getInstance().GetLast().endY = e.Y;                    
+                    DrawingModel.getInstance().GetLast().endY = e.Y;
                     DrawPanel.Invalidate();
                     break;
                 default:
@@ -302,27 +325,27 @@ namespace PhotoPaint
         {
             pen.StartCap = LineCap.Triangle;
         }
-       
+
         private void StartCap_type2_Click(object sender, EventArgs e)
         {
             pen.StartCap = LineCap.ArrowAnchor;
         }
-     
+
         private void StartCap_type4_Click(object sender, EventArgs e)
         {
             pen.StartCap = LineCap.DiamondAnchor;
         }
-      
+
         private void StartCap_type6_Click(object sender, EventArgs e)
         {
             pen.StartCap = LineCap.NoAnchor;
         }
-       
+
         private void StartCap_type8_Click(object sender, EventArgs e)
         {
             pen.StartCap = LineCap.RoundAnchor;
         }
-   
+
         private void StartCap_type10_Click(object sender, EventArgs e)
         {
             pen.StartCap = LineCap.SquareAnchor;
@@ -365,6 +388,176 @@ namespace PhotoPaint
 
         #endregion
 
+        #region Меню файл
+
+        private void создатьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Start formS = new Start();
+            formS.Show();
+        }
+
+        private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var f = new SaveFileDialog();
+            f.FileName = "new";
+            f.Filter = "*.xml| *.xml";
+            if (f.ShowDialog() != DialogResult.OK) return;
+
+            try
+            {
+                DrawingModel.getInstance().saveToXml(f.FileName);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void сохранитькакToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var dlg = new SaveFileDialog();
+            dlg.Filter = "";
+            ImageCodecInfo[] codecs = ImageCodecInfo.GetImageEncoders();
+            string sep = string.Empty;
+
+            foreach (var c in codecs)
+            {
+                string codecName = c.CodecName.Substring(8).Replace("Codec", "Files").Trim();
+                dlg.Filter = String.Format("{0}{1}{2} ({3})|{3}", dlg.Filter, sep, codecName, c.FilenameExtension);
+                sep = "|";
+            }
+
+            dlg.Filter = String.Format("{0}{1}{2} ({3})|{3}", dlg.Filter, sep, "All Files", "*.*");
+            dlg.DefaultExt = ".png";
+
+            if (dlg.ShowDialog() != DialogResult.OK) return;
+            try
+            {
+                Bitmap toSave = new Bitmap(DrawPanel.Width, DrawPanel.Height);
+                Graphics g = Graphics.FromImage(toSave);
+                g.Clear(DrawPanel.BackColor);
+                DrawingModel.getInstance().Paint(g);
+                toSave.Save(dlg.FileName, ImageFormat.Jpeg);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Не удалось сохранить холст!\nПопробуйте изменить размер", "Error");
+                return;
+            }
+
+        }
+
+        private void предварительныйпросмотрToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Preview preview = new Preview(DrawPanel);
+            preview.ShowDialog();
+        }
+
+        #endregion
+
+        #region Меню правка
+        private void очиститьВсёToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+
+        }
+
+        #endregion
+
+        #region Полосы прокрутки
+
+        private void hScrollBar1_Scroll(object sender, ScrollEventArgs e)
+        {
+
+            if (hScrollBar1.Value > lastposX)
+            {
+                var location = DrawPanel.Location;
+                location.X -= 1;
+                DrawPanel.Location = location;
+                lastposX = hScrollBar1.Value;
+            }
+            else if (hScrollBar1.Value < lastposX)
+            {
+                var location = DrawPanel.Location;
+                location.X += 1;
+                DrawPanel.Location = location;
+                lastposX = hScrollBar1.Value;
+            }
+        }
+
+        private void DrawPanel_Resize(object sender, EventArgs e)
+        {
+            if (DrawPanel.Width < this.Width)
+            {
+                hScrollBar1.Hide();
+            }
+            else
+            {
+                hScrollBar1.Show();
+                int r = DrawPanel.Width - this.Width;
+                hScrollBar1.Maximum = r;
+            }
+
+            if (DrawPanel.Height < this.Height)
+            {
+                vScrollBar1.Hide();
+            }
+            else
+            {
+                vScrollBar1.Show();
+                int r = DrawPanel.Height - this.Height;
+                vScrollBar1.Maximum = r;
+            }
+        }
+
+        private void Main_Resize(object sender, EventArgs e)
+        {
+            if (DrawPanel.Width < this.Width)
+            {
+                hScrollBar1.Hide();
+            }
+            else
+            {
+                hScrollBar1.Show();
+                int r = DrawPanel.Width - this.Width;
+                hScrollBar1.Maximum = r;
+            }
+
+            if (DrawPanel.Height < this.Height)
+            {
+                vScrollBar1.Hide();
+            }
+            else
+            {
+                vScrollBar1.Show();
+                int r = DrawPanel.Height - this.Height;
+                vScrollBar1.Maximum = r;
+            }
+        }
+
+        private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
+        {
+            if (vScrollBar1.Value > lastposY)
+            {
+                var location = DrawPanel.Location;
+                location.Y -= 1;
+                DrawPanel.Location = location;
+                lastposY = vScrollBar1.Value;
+            }
+            else if (vScrollBar1.Value < lastposY)
+            {
+                var location = DrawPanel.Location;
+                location.Y += 1;
+                DrawPanel.Location = location;
+                lastposY = vScrollBar1.Value;
+            }
+        }
+
+        #endregion
+
+
+
+
 
         #region Переменные
 
@@ -390,6 +583,8 @@ namespace PhotoPaint
         public Color solidG = Color.Red;
 
         public HatchStyle hatchStyle;
+        static int lastposX = 3;
+        static int lastposY = 3;
 
         
 

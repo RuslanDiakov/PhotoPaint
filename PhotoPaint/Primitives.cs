@@ -14,7 +14,7 @@ namespace PhotoPaint
     [XmlInclude(typeof(Ellipse))]
     class Primitives
     {
-       
+
         [XmlElement("PenColor")]
         public int PenColor
         {
@@ -42,7 +42,7 @@ namespace PhotoPaint
                 pen.Width = value;
             }
         }
-      
+
         public virtual void Paint(Graphics g)
         {
 
@@ -75,7 +75,7 @@ namespace PhotoPaint
                     case GradientType.Image:
                         TextureBrush textureBrush = new TextureBrush(new Bitmap(TextureBmp));
                         g.FillEllipse(textureBrush, r);
-                        
+
                         break;
                 }
                 g.DrawEllipse(pen, r);
@@ -89,8 +89,8 @@ namespace PhotoPaint
         {
             public override void Paint(Graphics g)
             {
-                if (endX - startX == 0 || endY - startY == 0) return;
-                Rectangle r = new Rectangle(startX, startY, endX - startX, endY - startY);
+               if (endX - startX == 0 || endY - startY == 0) return;
+               Rectangle r = new Rectangle(startX, startY, endX - startX, endY - startY);
 
                 switch (BrushType)
                 {
@@ -123,7 +123,7 @@ namespace PhotoPaint
         {
             public override void Paint(Graphics g)
             {
-              //  if (endX - startX == 0 || endY - startY == 0) return;                               
+                //  if (endX - startX == 0 || endY - startY == 0) return;                               
                 g.DrawLine(pen, startX, startY, endX, endY);
             }
         }
@@ -131,14 +131,14 @@ namespace PhotoPaint
         public class DrawingModel
         {
             List<Primitives> allDraw;
-          
+
             private DrawingModel()
             {
                 allDraw = new List<Primitives>();
             }
 
             private static DrawingModel instance;
-            
+
             public static DrawingModel getInstance()
             {
                 if (instance == null)
@@ -154,7 +154,7 @@ namespace PhotoPaint
                 {
                     p.Paint(g);
                 }
-            }            
+            }
 
             public Primitives GetLast()
             {
@@ -240,7 +240,7 @@ namespace PhotoPaint
                 r1.pen = (Pen)frm.pen.Clone();
                 r1.BrushType = frm.BrashType;
 
-               allDraw.Add(r1);
+                allDraw.Add(r1);
             }
 
             public void saveToXml(string filename)
@@ -261,7 +261,7 @@ namespace PhotoPaint
                     allDraw = (List<Primitives>)formater.Deserialize(fs);
                 }
             }
-            
+
             public bool canUndo()
             {
                 if (allDraw.Count > 0) return true;
@@ -290,6 +290,8 @@ namespace PhotoPaint
             {
                 // allDraw.Add(allDraw.Last<Primitives>);
             }
+
+
         }
 
 
@@ -312,7 +314,7 @@ namespace PhotoPaint
         public Color lgbFrom = Color.AliceBlue;
         public Color lgbTo = Color.Red;
         public float lgbPos = 0;
-
+        
         // Заливка фигуры 1 цветом
         public Color solidG = Color.Red;
 
@@ -321,6 +323,6 @@ namespace PhotoPaint
         public Color hatchColor;
 
         // Заливка фигуры картинкой
-        public string TextureBmp = "C:\\Users\\Core00\\Documents\\Untitled.png";
+        public string TextureBmp;
     }
 }
