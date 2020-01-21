@@ -75,9 +75,9 @@
             this.toolStrip_Brush = new System.Windows.Forms.ToolStrip();
             this.toolStripButton_none = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton_createLine = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton_createEllipse = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton_createRectangle = new System.Windows.Forms.ToolStripButton();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStripMenuItem_PenWidth05 = new System.Windows.Forms.ToolStripMenuItem();
@@ -94,6 +94,23 @@
             this.toolStripButton_ShowLayers = new System.Windows.Forms.ToolStripButton();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton_fillDrawPanel = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip4 = new System.Windows.Forms.ToolStrip();
+            this.toolStrip_StartPen = new System.Windows.Forms.ToolStripDropDownButton();
+            this.StartCap_type1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.StartCap_type2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.StartCap_type3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.StartCap_type4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.StartCap_type5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.StartCap_type6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.StartCap_type7 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip_EndPen = new System.Windows.Forms.ToolStripDropDownButton();
+            this.StartCapEnd_type1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.StartCapEnd_type2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.StartCapEnd_type3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.StartCapEnd_type4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.StartCapEnd_type5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.StartCapEnd_type6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.StartCapEnd_type7 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -103,6 +120,7 @@
             this.toolStrip.SuspendLayout();
             this.toolStrip3.SuspendLayout();
             this.toolStrip2.SuspendLayout();
+            this.toolStrip4.SuspendLayout();
             this.SuspendLayout();
             // 
             // BottomToolStripPanel
@@ -171,6 +189,7 @@
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip);
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip3);
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip2);
+            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip4);
             this.toolStripContainer1.TopToolStripPanel.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
             // 
             // toolStrip1
@@ -490,9 +509,9 @@
             this.toolStrip_Brush.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton_none,
             this.toolStripButton2,
-            this.toolStripButton3,
+            this.toolStripButton_createLine,
             this.toolStripButton_createEllipse,
-            this.toolStripButton5});
+            this.toolStripButton_createRectangle});
             this.toolStrip_Brush.Location = new System.Drawing.Point(3, 24);
             this.toolStrip_Brush.Name = "toolStrip_Brush";
             this.toolStrip_Brush.Size = new System.Drawing.Size(187, 38);
@@ -521,16 +540,17 @@
             this.toolStripButton2.Size = new System.Drawing.Size(35, 35);
             this.toolStripButton2.Text = "Точка";
             // 
-            // toolStripButton3
+            // toolStripButton_createLine
             // 
-            this.toolStripButton3.AutoSize = false;
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = global::PhotoPaint.Properties.Resources.Line;
-            this.toolStripButton3.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(35, 35);
-            this.toolStripButton3.Text = "Линия";
+            this.toolStripButton_createLine.AutoSize = false;
+            this.toolStripButton_createLine.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton_createLine.Image = global::PhotoPaint.Properties.Resources.Line;
+            this.toolStripButton_createLine.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButton_createLine.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton_createLine.Name = "toolStripButton_createLine";
+            this.toolStripButton_createLine.Size = new System.Drawing.Size(35, 35);
+            this.toolStripButton_createLine.Text = "Линия";
+            this.toolStripButton_createLine.Click += new System.EventHandler(this.toolStripButton_createLine_Click);
             // 
             // toolStripButton_createEllipse
             // 
@@ -544,16 +564,17 @@
             this.toolStripButton_createEllipse.Text = "Круг";
             this.toolStripButton_createEllipse.Click += new System.EventHandler(this.toolStripButton_createEllipse_Click);
             // 
-            // toolStripButton5
+            // toolStripButton_createRectangle
             // 
-            this.toolStripButton5.AutoSize = false;
-            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton5.Image = global::PhotoPaint.Properties.Resources.rect;
-            this.toolStripButton5.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(35, 35);
-            this.toolStripButton5.Text = "Прямоугольник";
+            this.toolStripButton_createRectangle.AutoSize = false;
+            this.toolStripButton_createRectangle.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton_createRectangle.Image = global::PhotoPaint.Properties.Resources.rect;
+            this.toolStripButton_createRectangle.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButton_createRectangle.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton_createRectangle.Name = "toolStripButton_createRectangle";
+            this.toolStripButton_createRectangle.Size = new System.Drawing.Size(35, 35);
+            this.toolStripButton_createRectangle.Text = "Прямоугольник";
+            this.toolStripButton_createRectangle.Click += new System.EventHandler(this.toolStripButton_createRectangle_Click);
             // 
             // toolStrip
             // 
@@ -564,7 +585,7 @@
             this.toolStripButton_PenColor,
             this.toolStripButton_PenFillColor,
             this.toolStripButton_PenFillGradient});
-            this.toolStrip.Location = new System.Drawing.Point(190, 24);
+            this.toolStrip.Location = new System.Drawing.Point(237, 24);
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.Size = new System.Drawing.Size(162, 38);
             this.toolStrip.TabIndex = 2;
@@ -694,7 +715,7 @@
             this.toolStrip3.Dock = System.Windows.Forms.DockStyle.None;
             this.toolStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton_ShowLayers});
-            this.toolStrip3.Location = new System.Drawing.Point(352, 24);
+            this.toolStrip3.Location = new System.Drawing.Point(190, 24);
             this.toolStrip3.Name = "toolStrip3";
             this.toolStrip3.Size = new System.Drawing.Size(47, 38);
             this.toolStrip3.TabIndex = 4;
@@ -716,7 +737,7 @@
             this.toolStrip2.Dock = System.Windows.Forms.DockStyle.None;
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton_fillDrawPanel});
-            this.toolStrip2.Location = new System.Drawing.Point(401, 24);
+            this.toolStrip2.Location = new System.Drawing.Point(399, 24);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.Size = new System.Drawing.Size(47, 38);
             this.toolStrip2.TabIndex = 3;
@@ -732,6 +753,226 @@
             this.toolStripButton_fillDrawPanel.Size = new System.Drawing.Size(35, 35);
             this.toolStripButton_fillDrawPanel.Text = "Заливка фона";
             this.toolStripButton_fillDrawPanel.Click += new System.EventHandler(this.toolStripButton_fillDrawPanel_Click);
+            // 
+            // toolStrip4
+            // 
+            this.toolStrip4.BackColor = System.Drawing.Color.DimGray;
+            this.toolStrip4.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip4.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStrip_StartPen,
+            this.toolStrip_EndPen});
+            this.toolStrip4.Location = new System.Drawing.Point(446, 24);
+            this.toolStrip4.Name = "toolStrip4";
+            this.toolStrip4.Size = new System.Drawing.Size(133, 38);
+            this.toolStrip4.TabIndex = 5;
+            // 
+            // toolStrip_StartPen
+            // 
+            this.toolStrip_StartPen.AutoSize = false;
+            this.toolStrip_StartPen.BackColor = System.Drawing.Color.DimGray;
+            this.toolStrip_StartPen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStrip_StartPen.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.StartCap_type1,
+            this.StartCap_type2,
+            this.StartCap_type3,
+            this.StartCap_type4,
+            this.StartCap_type5,
+            this.StartCap_type6,
+            this.StartCap_type7});
+            this.toolStrip_StartPen.Image = global::PhotoPaint.Properties.Resources.RoundAnchor;
+            this.toolStrip_StartPen.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStrip_StartPen.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStrip_StartPen.Name = "toolStrip_StartPen";
+            this.toolStrip_StartPen.Size = new System.Drawing.Size(45, 35);
+            this.toolStrip_StartPen.Text = "Начало пера";
+            // 
+            // StartCap_type1
+            // 
+            this.StartCap_type1.BackColor = System.Drawing.Color.DimGray;
+            this.StartCap_type1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.StartCap_type1.ForeColor = System.Drawing.Color.White;
+            this.StartCap_type1.Image = global::PhotoPaint.Properties.Resources.NoAnchor;
+            this.StartCap_type1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.StartCap_type1.Name = "StartCap_type1";
+            this.StartCap_type1.Size = new System.Drawing.Size(188, 42);
+            this.StartCap_type1.Text = "NoAnchor";
+            this.StartCap_type1.Click += new System.EventHandler(this.StartCap_type6_Click);
+            // 
+            // StartCap_type2
+            // 
+            this.StartCap_type2.BackColor = System.Drawing.Color.DimGray;
+            this.StartCap_type2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.StartCap_type2.ForeColor = System.Drawing.Color.White;
+            this.StartCap_type2.Image = global::PhotoPaint.Properties.Resources.ArrowAnchor;
+            this.StartCap_type2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.StartCap_type2.Name = "StartCap_type2";
+            this.StartCap_type2.Size = new System.Drawing.Size(188, 42);
+            this.StartCap_type2.Text = "ArrowAnchor";
+            this.StartCap_type2.Click += new System.EventHandler(this.StartCap_type2_Click);
+            // 
+            // StartCap_type3
+            // 
+            this.StartCap_type3.BackColor = System.Drawing.Color.DimGray;
+            this.StartCap_type3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.StartCap_type3.ForeColor = System.Drawing.Color.White;
+            this.StartCap_type3.Image = global::PhotoPaint.Properties.Resources.Round;
+            this.StartCap_type3.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.StartCap_type3.Name = "StartCap_type3";
+            this.StartCap_type3.Size = new System.Drawing.Size(188, 42);
+            this.StartCap_type3.Text = "Round";
+            this.StartCap_type3.Click += new System.EventHandler(this.StartCap_type3_Click_1);
+            // 
+            // StartCap_type4
+            // 
+            this.StartCap_type4.BackColor = System.Drawing.Color.DimGray;
+            this.StartCap_type4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.StartCap_type4.ForeColor = System.Drawing.Color.White;
+            this.StartCap_type4.Image = global::PhotoPaint.Properties.Resources.DiamondAnchor;
+            this.StartCap_type4.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.StartCap_type4.Name = "StartCap_type4";
+            this.StartCap_type4.Size = new System.Drawing.Size(188, 42);
+            this.StartCap_type4.Text = "DiamondAnchor";
+            this.StartCap_type4.Click += new System.EventHandler(this.StartCap_type4_Click);
+            // 
+            // StartCap_type5
+            // 
+            this.StartCap_type5.BackColor = System.Drawing.Color.DimGray;
+            this.StartCap_type5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.StartCap_type5.ForeColor = System.Drawing.Color.White;
+            this.StartCap_type5.Image = global::PhotoPaint.Properties.Resources.RoundAnchor;
+            this.StartCap_type5.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.StartCap_type5.Name = "StartCap_type5";
+            this.StartCap_type5.Size = new System.Drawing.Size(188, 42);
+            this.StartCap_type5.Text = "RoundAnchor";
+            this.StartCap_type5.Click += new System.EventHandler(this.StartCap_type8_Click);
+            // 
+            // StartCap_type6
+            // 
+            this.StartCap_type6.BackColor = System.Drawing.Color.DimGray;
+            this.StartCap_type6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.StartCap_type6.ForeColor = System.Drawing.Color.White;
+            this.StartCap_type6.Image = global::PhotoPaint.Properties.Resources.SquareAnchor;
+            this.StartCap_type6.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.StartCap_type6.Name = "StartCap_type6";
+            this.StartCap_type6.Size = new System.Drawing.Size(188, 42);
+            this.StartCap_type6.Text = "SquareAnchor";
+            this.StartCap_type6.Click += new System.EventHandler(this.StartCap_type10_Click);
+            // 
+            // StartCap_type7
+            // 
+            this.StartCap_type7.BackColor = System.Drawing.Color.DimGray;
+            this.StartCap_type7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.StartCap_type7.ForeColor = System.Drawing.Color.White;
+            this.StartCap_type7.Image = global::PhotoPaint.Properties.Resources.Triangle;
+            this.StartCap_type7.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.StartCap_type7.Name = "StartCap_type7";
+            this.StartCap_type7.Size = new System.Drawing.Size(188, 42);
+            this.StartCap_type7.Text = "Triangle";
+            this.StartCap_type7.Click += new System.EventHandler(this.StartCap_type7_Click_1);
+            // 
+            // toolStrip_EndPen
+            // 
+            this.toolStrip_EndPen.AutoSize = false;
+            this.toolStrip_EndPen.BackColor = System.Drawing.Color.DimGray;
+            this.toolStrip_EndPen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStrip_EndPen.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.StartCapEnd_type1,
+            this.StartCapEnd_type2,
+            this.StartCapEnd_type3,
+            this.StartCapEnd_type4,
+            this.StartCapEnd_type5,
+            this.StartCapEnd_type6,
+            this.StartCapEnd_type7});
+            this.toolStrip_EndPen.Image = global::PhotoPaint.Properties.Resources.ArrowAnchor21;
+            this.toolStrip_EndPen.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStrip_EndPen.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStrip_EndPen.Name = "toolStrip_EndPen";
+            this.toolStrip_EndPen.Size = new System.Drawing.Size(45, 35);
+            this.toolStrip_EndPen.Text = "Начало пера";
+            // 
+            // StartCapEnd_type1
+            // 
+            this.StartCapEnd_type1.BackColor = System.Drawing.Color.DimGray;
+            this.StartCapEnd_type1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.StartCapEnd_type1.ForeColor = System.Drawing.Color.White;
+            this.StartCapEnd_type1.Image = global::PhotoPaint.Properties.Resources.NoAnchor;
+            this.StartCapEnd_type1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.StartCapEnd_type1.Name = "StartCapEnd_type1";
+            this.StartCapEnd_type1.Size = new System.Drawing.Size(199, 42);
+            this.StartCapEnd_type1.Text = "NoAnchor";
+            this.StartCapEnd_type1.Click += new System.EventHandler(this.StartCapEnd_type1_Click);
+            // 
+            // StartCapEnd_type2
+            // 
+            this.StartCapEnd_type2.BackColor = System.Drawing.Color.DimGray;
+            this.StartCapEnd_type2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.StartCapEnd_type2.ForeColor = System.Drawing.Color.White;
+            this.StartCapEnd_type2.Image = global::PhotoPaint.Properties.Resources.ArrowAnchor2;
+            this.StartCapEnd_type2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.StartCapEnd_type2.Name = "StartCapEnd_type2";
+            this.StartCapEnd_type2.Size = new System.Drawing.Size(199, 42);
+            this.StartCapEnd_type2.Text = "ArrowAnchor";
+            this.StartCapEnd_type2.Click += new System.EventHandler(this.StartCapEnd_type2_Click);
+            // 
+            // StartCapEnd_type3
+            // 
+            this.StartCapEnd_type3.BackColor = System.Drawing.Color.DimGray;
+            this.StartCapEnd_type3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.StartCapEnd_type3.ForeColor = System.Drawing.Color.White;
+            this.StartCapEnd_type3.Image = global::PhotoPaint.Properties.Resources.Round2;
+            this.StartCapEnd_type3.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.StartCapEnd_type3.Name = "StartCapEnd_type3";
+            this.StartCapEnd_type3.Size = new System.Drawing.Size(199, 42);
+            this.StartCapEnd_type3.Text = "Round";
+            this.StartCapEnd_type3.Click += new System.EventHandler(this.StartCapEnd_type3_Click);
+            // 
+            // StartCapEnd_type4
+            // 
+            this.StartCapEnd_type4.BackColor = System.Drawing.Color.DimGray;
+            this.StartCapEnd_type4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.StartCapEnd_type4.ForeColor = System.Drawing.Color.White;
+            this.StartCapEnd_type4.Image = global::PhotoPaint.Properties.Resources.DiamondAnchor2;
+            this.StartCapEnd_type4.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.StartCapEnd_type4.Name = "StartCapEnd_type4";
+            this.StartCapEnd_type4.Size = new System.Drawing.Size(199, 42);
+            this.StartCapEnd_type4.Text = "DiamondAnchor";
+            this.StartCapEnd_type4.Click += new System.EventHandler(this.StartCapEnd_type4_Click);
+            // 
+            // StartCapEnd_type5
+            // 
+            this.StartCapEnd_type5.BackColor = System.Drawing.Color.DimGray;
+            this.StartCapEnd_type5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.StartCapEnd_type5.ForeColor = System.Drawing.Color.White;
+            this.StartCapEnd_type5.Image = global::PhotoPaint.Properties.Resources.RoundAnchor2;
+            this.StartCapEnd_type5.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.StartCapEnd_type5.Name = "StartCapEnd_type5";
+            this.StartCapEnd_type5.Size = new System.Drawing.Size(199, 42);
+            this.StartCapEnd_type5.Text = "RoundAnchor";
+            this.StartCapEnd_type5.Click += new System.EventHandler(this.StartCapEnd_type5_Click);
+            // 
+            // StartCapEnd_type6
+            // 
+            this.StartCapEnd_type6.BackColor = System.Drawing.Color.DimGray;
+            this.StartCapEnd_type6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.StartCapEnd_type6.ForeColor = System.Drawing.Color.White;
+            this.StartCapEnd_type6.Image = global::PhotoPaint.Properties.Resources.SquareAnchor2;
+            this.StartCapEnd_type6.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.StartCapEnd_type6.Name = "StartCapEnd_type6";
+            this.StartCapEnd_type6.Size = new System.Drawing.Size(199, 42);
+            this.StartCapEnd_type6.Text = "SquareAnchor";
+            this.StartCapEnd_type6.Click += new System.EventHandler(this.StartCapEnd_type6_Click);
+            // 
+            // StartCapEnd_type7
+            // 
+            this.StartCapEnd_type7.BackColor = System.Drawing.Color.DimGray;
+            this.StartCapEnd_type7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.StartCapEnd_type7.ForeColor = System.Drawing.Color.White;
+            this.StartCapEnd_type7.Image = global::PhotoPaint.Properties.Resources.Triangle2;
+            this.StartCapEnd_type7.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.StartCapEnd_type7.Name = "StartCapEnd_type7";
+            this.StartCapEnd_type7.Size = new System.Drawing.Size(199, 42);
+            this.StartCapEnd_type7.Text = "Triangle";
+            this.StartCapEnd_type7.Click += new System.EventHandler(this.StartCapEnd_type7_Click);
             // 
             // Main
             // 
@@ -766,6 +1007,8 @@
             this.toolStrip3.PerformLayout();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
+            this.toolStrip4.ResumeLayout(false);
+            this.toolStrip4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -817,9 +1060,9 @@
         private System.Windows.Forms.ToolStrip toolStrip_Brush;
         private System.Windows.Forms.ToolStripButton toolStripButton_none;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripButton toolStripButton_createLine;
         private System.Windows.Forms.ToolStripButton toolStripButton_createEllipse;
-        private System.Windows.Forms.ToolStripButton toolStripButton5;
+        private System.Windows.Forms.ToolStripButton toolStripButton_createRectangle;
         private System.Windows.Forms.ToolStrip toolStrip;
         private System.Windows.Forms.ToolStripButton toolStripButton_PenColor;
         private System.Windows.Forms.ToolStripButton toolStripButton_PenFillColor;
@@ -836,5 +1079,22 @@
         private System.Windows.Forms.ToolStripButton toolStripButton_fillDrawPanel;
         private System.Windows.Forms.ToolStrip toolStrip3;
         private System.Windows.Forms.ToolStripButton toolStripButton_ShowLayers;
+        private System.Windows.Forms.ToolStrip toolStrip4;
+        private System.Windows.Forms.ToolStripDropDownButton toolStrip_StartPen;
+        private System.Windows.Forms.ToolStripMenuItem StartCap_type2;
+        private System.Windows.Forms.ToolStripMenuItem StartCap_type4;
+        private System.Windows.Forms.ToolStripMenuItem StartCap_type1;
+        private System.Windows.Forms.ToolStripMenuItem StartCap_type5;
+        private System.Windows.Forms.ToolStripMenuItem StartCap_type6;
+        private System.Windows.Forms.ToolStripMenuItem StartCap_type7;
+        private System.Windows.Forms.ToolStripMenuItem StartCap_type3;
+        private System.Windows.Forms.ToolStripDropDownButton toolStrip_EndPen;
+        private System.Windows.Forms.ToolStripMenuItem StartCapEnd_type1;
+        private System.Windows.Forms.ToolStripMenuItem StartCapEnd_type2;
+        private System.Windows.Forms.ToolStripMenuItem StartCapEnd_type3;
+        private System.Windows.Forms.ToolStripMenuItem StartCapEnd_type4;
+        private System.Windows.Forms.ToolStripMenuItem StartCapEnd_type5;
+        private System.Windows.Forms.ToolStripMenuItem StartCapEnd_type6;
+        private System.Windows.Forms.ToolStripMenuItem StartCapEnd_type7;
     }
 }

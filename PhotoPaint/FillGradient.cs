@@ -17,6 +17,7 @@ namespace PhotoPaint
             cb_patern_type.DataSource = Enum.GetNames(typeof(HatchStyle));
             cb_patern_type.SelectedIndex = 1;
             b_patern_setColor.BackColor = hatchColor;
+            TextureBmp = "C:\\Users\\Core100\\source\\repos\\PhotoPaint\\PhotoPaint\\Resources\\z3.5.jpg";
         }
 
         #region LineGradient
@@ -201,59 +202,99 @@ namespace PhotoPaint
             b_patern_setColor.BackColor = hatchColor;
             groupBox6.Invalidate();
         }
-       
+
         #region Заготовки
         private void b_patern_z1_Click(object sender, EventArgs e)
         {
-
+            b_patern_setColor.BackColor = Color.Orange;
+            hatchStyle = HatchStyle.Min;
+            cb_patern_type.Text = "Min";
+            hatchColor = Color.Orange;
+            groupBox6.Invalidate();
         }
 
         private void b_patern_z2_Click(object sender, EventArgs e)
         {
-
+            b_patern_setColor.BackColor = Color.Orange;
+            hatchStyle = HatchStyle.Vertical;
+            cb_patern_type.Text = "Vertical";
+            hatchColor = Color.Orange;
+            groupBox6.Invalidate();
         }
 
         private void b_patern_z3_Click(object sender, EventArgs e)
         {
-
+            b_patern_setColor.BackColor = Color.LightBlue;
+            hatchStyle = HatchStyle.LargeGrid;
+            hatchColor = Color.LightBlue;
+            cb_patern_type.Text = "LargeGrid";
+            groupBox6.Invalidate();
         }
 
         private void b_patern_z4_Click(object sender, EventArgs e)
         {
-
+            b_patern_setColor.BackColor = Color.Yellow;
+            hatchStyle = HatchStyle.Max;
+            hatchColor = Color.Yellow;
+            cb_patern_type.Text = "Max";
+            groupBox6.Invalidate();
         }
 
         private void b_patern_z5_Click(object sender, EventArgs e)
         {
-
+            b_patern_setColor.BackColor = Color.LightPink;
+            hatchStyle = HatchStyle.DarkVertical;
+            hatchColor = Color.LightPink;
+            cb_patern_type.Text = "DarkVertical";
+            groupBox6.Invalidate();
         }
 
         private void b_patern_z6_Click(object sender, EventArgs e)
         {
-
+            b_patern_setColor.BackColor = Color.SteelBlue;
+            hatchStyle = HatchStyle.DarkHorizontal;
+            hatchColor = Color.SteelBlue;
+            cb_patern_type.Text = "DarkHorizontal";
+            groupBox6.Invalidate();
         }
 
         private void b_patern_z7_Click(object sender, EventArgs e)
         {
-
+            b_patern_setColor.BackColor = Color.Violet;
+            hatchStyle = HatchStyle.DiagonalBrick;
+            hatchColor = Color.Violet;
+            cb_patern_type.Text = "DiagonalBrick";
+            groupBox6.Invalidate();
         }
 
         private void b_patern_z8_Click(object sender, EventArgs e)
         {
-
+            b_patern_setColor.BackColor = Color.Orange;
+            hatchStyle = HatchStyle.LargeConfetti;
+            hatchColor = Color.Orange;
+            cb_patern_type.Text = "LargeConfetti";
+            groupBox6.Invalidate();
         }
 
         private void b_patern_z9_Click(object sender, EventArgs e)
         {
-
+            b_patern_setColor.BackColor = Color.White;
+            hatchStyle = HatchStyle.Divot;
+            hatchColor = Color.White;
+            cb_patern_type.Text = "Divot";
+            groupBox6.Invalidate();
         }
 
         private void b_patern_z10_Click(object sender, EventArgs e)
         {
-
+            b_patern_setColor.BackColor = Color.White;
+            hatchStyle = HatchStyle.SmallCheckerBoard;
+            hatchColor = Color.White;
+            cb_patern_type.Text = "SmallCheckerBoard";
+            groupBox6.Invalidate();
         }
         #endregion
-        
+
         private void cb_patern_type_SelectedIndexChanged(object sender, EventArgs e)
         {
             hatchStyle = (HatchStyle)cb_patern_type.SelectedIndex;
@@ -283,7 +324,6 @@ namespace PhotoPaint
         }
 
         #endregion
-
 
         #region Img
 
@@ -328,6 +368,71 @@ namespace PhotoPaint
         {
             BrashType = GradientType.Image;
         }
+
+        #region Заготовки
+
+        private void z_img_1_Click(object sender, EventArgs e)
+        {
+            TextureBmp = "C:\\Users\\Core100\\source\\repos\\PhotoPaint\\PhotoPaint\\Resources\\z3.1.jpg";
+            groupBox8.Invalidate();
+        }
+
+        private void z_img_2_Click(object sender, EventArgs e)
+        {
+            TextureBmp = "C:\\Users\\Core100\\source\\repos\\PhotoPaint\\PhotoPaint\\Resources\\z3.2.jpg";
+            groupBox8.Invalidate();
+        }
+
+        private void z_img_3_Click(object sender, EventArgs e)
+        {
+            TextureBmp = "C:\\Users\\Core100\\source\\repos\\PhotoPaint\\PhotoPaint\\Resources\\z3.3.jpg";
+            groupBox8.Invalidate();
+        }
+
+        private void z_img_4_Click(object sender, EventArgs e)
+        {
+            TextureBmp = "C:\\Users\\Core100\\source\\repos\\PhotoPaint\\PhotoPaint\\Resources\\z3.4.jpg";
+            groupBox8.Invalidate();
+        }
+
+        private void z_img_5_Click(object sender, EventArgs e)
+        {
+            TextureBmp = "C:\\Users\\Core100\\source\\repos\\PhotoPaint\\PhotoPaint\\Resources\\z3.5.jpg";
+            groupBox8.Invalidate();
+        }
+
+        private void z_img_6_Click(object sender, EventArgs e)
+        {
+            TextureBmp = "C:\\Users\\Core100\\source\\repos\\PhotoPaint\\PhotoPaint\\Resources\\z3.6.jpg";
+            groupBox8.Invalidate();
+        }
+
+        private void z_img_7_Click(object sender, EventArgs e)
+        {
+            TextureBmp = "C:\\Users\\Core100\\source\\repos\\PhotoPaint\\PhotoPaint\\Resources\\z3.7.jpg";
+            groupBox8.Invalidate();
+        }
+
+        private void z_img_8_Click(object sender, EventArgs e)
+        {
+            TextureBmp = "C:\\Users\\Core100\\source\\repos\\PhotoPaint\\PhotoPaint\\Resources\\z3.8.jpg";
+            groupBox8.Invalidate();
+        }
+
+        private void z_img_9_Click(object sender, EventArgs e)
+        {
+            TextureBmp = "C:\\Users\\Core100\\source\\repos\\PhotoPaint\\PhotoPaint\\Resources\\z3.9.jpg";
+            groupBox8.Invalidate();
+        }
+
+        private void z_img_10_Click(object sender, EventArgs e)
+        {
+            TextureBmp = "C:\\Users\\Core100\\source\\repos\\PhotoPaint\\PhotoPaint\\Resources\\z3.10.jpg";
+            groupBox8.Invalidate();
+        }
+
+        #endregion
+
         #endregion
     }
 }

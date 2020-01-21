@@ -111,6 +111,12 @@ namespace PhotoPaint
             }
         }
 
+        private void toolStripMI_type1_Click(object sender, EventArgs e)
+        {
+            pen.StartCap = LineCap.Round;
+
+        }
+
         #endregion
 
         #region Изменения толщины пера
@@ -141,7 +147,15 @@ namespace PhotoPaint
 
         private void toolStripTextBox_PenWidth_TextChanged(object sender, EventArgs e)
         {
-            pen.Width = Convert.ToInt32(toolStripTextBox_PenWidth.Text);
+            try
+            {
+                pen.Width = Convert.ToInt32(toolStripTextBox_PenWidth.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ввотите только цифры\nПример: 0.5 1 45 100","Error");
+                return;
+            } 
         }
         #endregion
 
@@ -180,9 +194,19 @@ namespace PhotoPaint
             CurrentDraw = DrawMode.None;
         }
 
+        private void toolStripButton_createLine_Click(object sender, EventArgs e)
+        {
+            CurrentDraw = DrawMode.Line;
+        }
+
         private void toolStripButton_createEllipse_Click(object sender, EventArgs e)
         {
             CurrentDraw = DrawMode.Ellipse;
+        }
+
+        private void toolStripButton_createRectangle_Click(object sender, EventArgs e)
+        {
+            CurrentDraw = DrawMode.Rectangle;
         }
 
         #endregion
@@ -201,15 +225,21 @@ namespace PhotoPaint
             startX = e.X; startY = e.Y;
             switch (CurrentDraw)
             {
+                case DrawMode.Line:
+                    DrawingModel.getInstance().CreateLine(this);
+                    break;
+
                 case DrawMode.None:
                     break;
+
                 case DrawMode.Ellipse:
                     DrawingModel.getInstance().CreateEllipse(this);
                     break;
+
                 case DrawMode.Rectangle:
-                    startX = e.X;
-                    startY = e.Y;
+                    DrawingModel.getInstance().CreateRectangle(this);
                     break;
+
                 default:
                     break;
             }
@@ -231,6 +261,14 @@ namespace PhotoPaint
             {
                 case DrawMode.None:
                     break;
+                case DrawMode.Line:
+                    if (DrawingModel.getInstance().GetLast() == null) break;
+                    //toolStripButton_createEllipse.BackColor = Color.Yellow;
+                    DrawingModel.getInstance().GetLast().endX = e.X;
+                    DrawingModel.getInstance().GetLast().endY = e.Y;
+                    DrawPanel.Invalidate();
+                    break;
+
                 case DrawMode.Ellipse:
                     if (DrawingModel.getInstance().GetLast() == null) break;
                     //toolStripButton_createEllipse.BackColor = Color.Yellow;
@@ -238,8 +276,12 @@ namespace PhotoPaint
                     DrawingModel.getInstance().GetLast().endY = e.Y;
                     DrawPanel.Invalidate();
                     break;
-                case DrawMode.Rectangle:
 
+                case DrawMode.Rectangle:
+                    if (DrawingModel.getInstance().GetLast() == null) break;
+                    //toolStripButton_createEllipse.BackColor = Color.Yellow;
+                    DrawingModel.getInstance().GetLast().endX = e.X;
+                    DrawingModel.getInstance().GetLast().endY = e.Y;                    
                     DrawPanel.Invalidate();
                     break;
                 default:
@@ -249,6 +291,81 @@ namespace PhotoPaint
 
         #endregion
 
+        #region Выбор типа наконечника линии
+
+        private void StartCap_type3_Click_1(object sender, EventArgs e)
+        {
+            pen.StartCap = LineCap.Round;
+        }
+
+        private void StartCap_type7_Click_1(object sender, EventArgs e)
+        {
+            pen.StartCap = LineCap.Triangle;
+        }
+       
+        private void StartCap_type2_Click(object sender, EventArgs e)
+        {
+            pen.StartCap = LineCap.ArrowAnchor;
+        }
+     
+        private void StartCap_type4_Click(object sender, EventArgs e)
+        {
+            pen.StartCap = LineCap.DiamondAnchor;
+        }
+      
+        private void StartCap_type6_Click(object sender, EventArgs e)
+        {
+            pen.StartCap = LineCap.NoAnchor;
+        }
+       
+        private void StartCap_type8_Click(object sender, EventArgs e)
+        {
+            pen.StartCap = LineCap.RoundAnchor;
+        }
+   
+        private void StartCap_type10_Click(object sender, EventArgs e)
+        {
+            pen.StartCap = LineCap.SquareAnchor;
+        }
+
+        private void StartCapEnd_type1_Click(object sender, EventArgs e)
+        {
+            pen.EndCap = LineCap.NoAnchor;
+        }
+
+        private void StartCapEnd_type2_Click(object sender, EventArgs e)
+        {
+            pen.EndCap = LineCap.ArrowAnchor;
+        }
+
+        private void StartCapEnd_type3_Click(object sender, EventArgs e)
+        {
+            pen.EndCap = LineCap.Round;
+        }
+
+        private void StartCapEnd_type4_Click(object sender, EventArgs e)
+        {
+            pen.EndCap = LineCap.DiamondAnchor;
+        }
+
+        private void StartCapEnd_type5_Click(object sender, EventArgs e)
+        {
+            pen.EndCap = LineCap.RoundAnchor;
+        }
+
+        private void StartCapEnd_type6_Click(object sender, EventArgs e)
+        {
+            pen.EndCap = LineCap.SquareAnchor;
+        }
+
+        private void StartCapEnd_type7_Click(object sender, EventArgs e)
+        {
+            pen.EndCap = LineCap.Triangle;
+        }
+
+        #endregion
+
+
         #region Переменные
 
         public Start startForm;
@@ -256,7 +373,7 @@ namespace PhotoPaint
         public int height_panel = 500;
         public Color backColor_panel = Color.LightGray;
 
-        enum DrawMode { None, Ellipse, Rectangle };
+        enum DrawMode { None, Point, Line, Ellipse, Rectangle };
         DrawMode CurrentDraw = DrawMode.None;
         bool isDrawing = false;
 
@@ -273,6 +390,8 @@ namespace PhotoPaint
         public Color solidG = Color.Red;
 
         public HatchStyle hatchStyle;
+
+        
 
         public Color hatchColor;
 

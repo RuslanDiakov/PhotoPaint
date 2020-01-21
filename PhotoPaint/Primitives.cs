@@ -48,6 +48,9 @@ namespace PhotoPaint
 
         }
 
+        /// <summary>
+        /// Елипс
+        /// </summary>
         public class Ellipse : Primitives
         {
             public override void Paint(Graphics g)
@@ -75,7 +78,53 @@ namespace PhotoPaint
                         
                         break;
                 }
-                g.DrawEllipse(pen, r);/////////////////////--------------!!!!
+                g.DrawEllipse(pen, r);
+            }
+        }
+
+        /// <summary>
+        /// Прямоугольник
+        /// </summary>
+        public class Rectangle_figure : Primitives
+        {
+            public override void Paint(Graphics g)
+            {
+                if (endX - startX == 0 || endY - startY == 0) return;
+                Rectangle r = new Rectangle(startX, startY, endX - startX, endY - startY);
+
+                switch (BrushType)
+                {
+                    case GradientType.Line:
+                        LinearGradientBrush lgb = new LinearGradientBrush(r, lgbFrom, lgbTo, lgbPos, true);
+                        g.FillRectangle(lgb, r);
+                        break;
+                    case GradientType.Solid:
+                        SolidBrush solid = new SolidBrush(solidG);
+                        g.FillRectangle(solid, r);
+                        break;
+                    case GradientType.Hatch:
+                        HatchBrush hatchBrush = new HatchBrush(hatchStyle, hatchColor);
+                        g.FillRectangle(hatchBrush, r);
+                        break;
+                    case GradientType.Image:
+                        TextureBrush textureBrush = new TextureBrush(new Bitmap(TextureBmp));
+                        g.FillRectangle(textureBrush, r);
+
+                        break;
+                }
+                g.DrawRectangle(pen, r);
+            }
+        }
+
+        /// <summary>
+        /// Линия
+        /// </summary>
+        public class Line_figure : Primitives
+        {
+            public override void Paint(Graphics g)
+            {
+              //  if (endX - startX == 0 || endY - startY == 0) return;                               
+                g.DrawLine(pen, startX, startY, endX, endY);
             }
         }
 
@@ -133,6 +182,10 @@ namespace PhotoPaint
 
             }
 
+            /// <summary>
+            /// Создание Елипса
+            /// </summary>
+            /// <param name="frm">Главная форма</param>
             public void CreateEllipse(Main frm)
             {
                 Ellipse r1 = new Ellipse();
@@ -150,6 +203,44 @@ namespace PhotoPaint
                 r1.hatchStyle = frm.hatchStyle;
                 r1.TextureBmp = frm.TextureBmp;
                 allDraw.Add(r1);
+            }
+
+            /// <summary>
+            /// Создание прямоугольника
+            /// </summary>
+            /// <param name="frm">Главная форма</param>
+            public void CreateRectangle(Main frm)
+            {
+                Rectangle_figure r1 = new Rectangle_figure();
+                r1.startX = frm.startX; r1.startY = frm.startY;
+                r1.endX = frm.endX; r1.endY = frm.endY;
+                r1.pen = (Pen)frm.pen.Clone();
+                r1.BrushType = frm.BrashType;
+
+                r1.lgbFrom = frm.lgbFrom;
+                r1.lgbTo = frm.lgbTo;
+                r1.lgbPos = frm.lgbPos;
+                r1.solidG = frm.solidG;
+
+                r1.hatchColor = frm.hatchColor;
+                r1.hatchStyle = frm.hatchStyle;
+                r1.TextureBmp = frm.TextureBmp;
+                allDraw.Add(r1);
+            }
+
+            /// <summary>
+            /// Создание линии
+            /// </summary>
+            /// <param name="frm">Главная форма</param>
+            public void CreateLine(Main frm)
+            {
+                Line_figure r1 = new Line_figure();
+                r1.startX = frm.startX; r1.startY = frm.startY;
+                r1.endX = frm.endX; r1.endY = frm.endY;
+                r1.pen = (Pen)frm.pen.Clone();
+                r1.BrushType = frm.BrashType;
+
+               allDraw.Add(r1);
             }
 
             public void saveToXml(string filename)

@@ -7,6 +7,6 @@ C:\Users\Core100\source\repos\PhotoPaint\PhotoPaint\obj\Debug\PhotoPaint.Start.r
 C:\Users\Core100\source\repos\PhotoPaint\PhotoPaint\obj\Debug\PhotoPaint.csproj.GenerateResource.cache
 C:\Users\Core100\source\repos\PhotoPaint\PhotoPaint\obj\Debug\PhotoPaint.exe
 C:\Users\Core100\source\repos\PhotoPaint\PhotoPaint\obj\Debug\PhotoPaint.pdb
-C:\Users\Core100\source\repos\PhotoPaint\PhotoPaint\obj\Debug\PhotoPaint.csprojAssemblyReference.cache
 C:\Users\Core100\source\repos\PhotoPaint\PhotoPaint\obj\Debug\PhotoPaint.FillSolidPen.resources
 C:\Users\Core100\source\repos\PhotoPaint\PhotoPaint\obj\Debug\PhotoPaint.FillGradient.resources
+C:\Users\Core100\source\repos\PhotoPaint\PhotoPaint\obj\Debug\PhotoPaint.csprojAssemblyReference.cache
