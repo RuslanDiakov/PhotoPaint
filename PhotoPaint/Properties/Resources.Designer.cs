@@ -203,6 +203,36 @@ namespace PhotoPaint.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Font {
+            get {
+                object obj = ResourceManager.GetObject("Font", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Font2 {
+            get {
+                object obj = ResourceManager.GetObject("Font2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Font3 {
+            get {
+                object obj = ResourceManager.GetObject("Font3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap gradient {
             get {
                 object obj = ResourceManager.GetObject("gradient", resourceCulture);
@@ -356,6 +386,26 @@ namespace PhotoPaint.Properties {
         internal static System.Drawing.Bitmap SquareAnchor2 {
             get {
                 object obj = ResourceManager.GetObject("SquareAnchor2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Text {
+            get {
+                object obj = ResourceManager.GetObject("Text", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Text2 {
+            get {
+                object obj = ResourceManager.GetObject("Text2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -11,3 +11,4 @@ C:\Users\Core100\source\repos\PhotoPaint\PhotoPaint\obj\Debug\PhotoPaint.FillSol
 C:\Users\Core100\source\repos\PhotoPaint\PhotoPaint\obj\Debug\PhotoPaint.FillGradient.resources
 C:\Users\Core100\source\repos\PhotoPaint\PhotoPaint\obj\Debug\PhotoPaint.csprojAssemblyReference.cache
 C:\Users\Core100\source\repos\PhotoPaint\PhotoPaint\obj\Debug\PhotoPaint.Preview.resources
+C:\Users\Core100\source\repos\PhotoPaint\PhotoPaint\obj\Debug\PhotoPaint.LayersForm.resources

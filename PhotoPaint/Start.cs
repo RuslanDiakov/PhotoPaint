@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Windows.Forms;
 
 namespace PhotoPaint
 {
     public partial class Start : Form
     {
-        public int width = 1200;
-        public int height = 500;
+        public int width;
+        public int height;
         public Color backColor = Color.LightGray;
-
-
+        Bitmap toOpen;
         public Start()
         {
             InitializeComponent();
@@ -31,7 +31,7 @@ namespace PhotoPaint
             backColor = button_checkBackColor.BackColor;
 
             //this.Hide();  
-            Main LoadForm = new Main(width, height, backColor);
+            Main LoadForm = new Main(width, height, backColor, toOpen);
             LoadForm.Show();
         }
 
@@ -65,6 +65,39 @@ namespace PhotoPaint
         private void button_exit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void button_open_Click(object sender, EventArgs e)
+        {
+            var dlg = new OpenFileDialog();
+            dlg.Filter = "";
+            ImageCodecInfo[] codecs = ImageCodecInfo.GetImageEncoders();
+            string sep = string.Empty;
+
+            foreach (var c in codecs)
+            {
+                string codecName = c.CodecName.Substring(8).Replace("Codec", "Files").Trim();
+                dlg.Filter = String.Format("{0}{1}{2} ({3})|{3}", dlg.Filter, sep, codecName, c.FilenameExtension);
+                sep = "|";
+            }
+
+            dlg.Filter = String.Format("{0}{1}{2} ({3})|{3}", dlg.Filter, sep, "All Files", "*.*");
+            dlg.DefaultExt = ".png";
+
+            if (dlg.ShowDialog() != DialogResult.OK) return;
+            try
+            {
+                toOpen = new Bitmap(dlg.FileName);
+                width = toOpen.Width;
+                height = toOpen.Height;
+                tb_width.Text = Convert.ToString(width);
+                tb_height.Text = Convert.ToString(height);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Не удалось открыть холст!\nПопробуйте изменить размер", "Error");
+                return;
+            }
         }
 
         #region КнопкиМакетов
@@ -111,5 +144,7 @@ namespace PhotoPaint
             cb_backColor.SelectedIndex = 0;
         }
         #endregion
+
+
     }
 }

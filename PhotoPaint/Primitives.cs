@@ -6,13 +6,14 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Xml.Serialization;
 
 namespace PhotoPaint
 {
     [Serializable]
     [XmlInclude(typeof(Ellipse))]
-    class Primitives
+    public class Primitives
     {
 
         [XmlElement("PenColor")]
@@ -46,6 +47,16 @@ namespace PhotoPaint
         public virtual void Paint(Graphics g)
         {
 
+        }
+
+        public override string ToString()
+        {
+            try
+            {
+                return $" Цвет обводки: {pen.Color.ToString()} | Толщина: {pen.Width.ToString()}" +
+                $" | Заливка: {solidG}";
+            }
+            catch { return "Text - " + newText; }
         }
 
         /// <summary>
@@ -89,8 +100,8 @@ namespace PhotoPaint
         {
             public override void Paint(Graphics g)
             {
-               if (endX - startX == 0 || endY - startY == 0) return;
-               Rectangle r = new Rectangle(startX, startY, endX - startX, endY - startY);
+                if (endX - startX == 0 || endY - startY == 0) return;
+                Rectangle r = new Rectangle(startX, startY, endX - startX, endY - startY);
 
                 switch (BrushType)
                 {
@@ -128,13 +139,79 @@ namespace PhotoPaint
             }
         }
 
+        /// <summary>
+        /// Текст
+        /// </summary>
+        public class Text_figure : Primitives
+        {
+            public override void Paint(Graphics g)
+            {
+                PointF drawPoint = new PointF(startX, startY);
+                Rectangle r = new Rectangle(startX, startY, endX - startX, endY - startY);
+
+                switch (BrushType)
+                {
+                    case GradientType.Line:
+                        //try
+                        //{
+                        //    LinearGradientBrush lgb = new LinearGradientBrush(r, lgbFrom, lgbTo, lgbPos, true);
+                        //    g.DrawString(newText, newFont, lgb, drawPoint);
+                        //    break;
+                        //}
+                        //catch (Exception)
+                        //{
+                        //    MessageBox.Show("Ошибка при заполнении градиентом\n" +
+                        //        "Возможное решение:\n" +
+                        //        "Переместите курсок на конец текста","Error");
+                        //    break;
+                        //}
+                        
+                        LinearGradientBrush lgb = new LinearGradientBrush(r, lgbFrom, lgbTo, lgbPos, true);
+                        g.DrawString(newText, newFont, lgb, drawPoint);
+                        break;
+
+                    case GradientType.Solid:
+                        SolidBrush solid = new SolidBrush(solidG);
+                        g.DrawString(newText, newFont, solid, drawPoint);
+                        break;
+                    case GradientType.Hatch:
+                        HatchBrush hatchBrush = new HatchBrush(hatchStyle, hatchColor);
+                        g.DrawString(newText, newFont, hatchBrush, drawPoint);
+                        break;
+                    case GradientType.Image:
+                        TextureBrush textureBrush = new TextureBrush(new Bitmap(TextureBmp));
+                        g.DrawString(newText, newFont, textureBrush, drawPoint);
+
+                        break;
+                }
+
+                //SolidBrush solid = new SolidBrush(solidG);
+                //HatchBrush hatchBrush = new HatchBrush(hatchStyle, hatchColor);
+                //g.DrawString(newText, newFont, hatchBrush, drawPoint);
+            }
+        }
+
+        public class Point_figure : Primitives
+        {
+            public override void Paint(Graphics g)
+            {
+
+                g.DrawLine(pen, startX, startY, startX, startY);
+
+
+            }
+        }
+
         public class DrawingModel
         {
-            List<Primitives> allDraw;
+            public List<Primitives> allDraw;
+
+            List<Primitives> undoElement;
 
             private DrawingModel()
             {
                 allDraw = new List<Primitives>();
+                undoElement = new List<Primitives>();
             }
 
             private static DrawingModel instance;
@@ -225,6 +302,7 @@ namespace PhotoPaint
                 r1.hatchColor = frm.hatchColor;
                 r1.hatchStyle = frm.hatchStyle;
                 r1.TextureBmp = frm.TextureBmp;
+
                 allDraw.Add(r1);
             }
 
@@ -239,6 +317,48 @@ namespace PhotoPaint
                 r1.endX = frm.endX; r1.endY = frm.endY;
                 r1.pen = (Pen)frm.pen.Clone();
                 r1.BrushType = frm.BrashType;
+
+                allDraw.Add(r1);
+            }
+
+            /// <summary>
+            /// Создание точки
+            /// </summary>
+            /// <param name="frm"></param>
+            public void CreatePoint(Main frm)
+            {
+                Point_figure r1 = new Point_figure();
+                r1.startX = frm.startX; r1.startY = frm.startY;
+                r1.endX = frm.endX; r1.endY = frm.endY;
+                r1.pen = (Pen)frm.pen.Clone();
+                r1.BrushType = frm.BrashType;
+
+                allDraw.Add(r1);
+            }
+
+            /// <summary>
+            /// Создание текста
+            /// </summary>
+            /// <param name="frm"></param>
+            public void CreateText(Main frm)
+            {
+                Text_figure r1 = new Text_figure();
+                r1.startX = frm.startX; r1.startY = frm.startY;
+                r1.endX = frm.endX; r1.endY = frm.endY;
+                r1.pen = (Pen)frm.pen.Clone();
+                r1.BrushType = frm.BrashType;
+
+                r1.lgbFrom = frm.lgbFrom;
+                r1.lgbTo = frm.lgbTo;
+                r1.lgbPos = frm.lgbPos;
+                r1.solidG = frm.solidG;
+
+                r1.hatchColor = frm.hatchColor;
+                r1.hatchStyle = frm.hatchStyle;
+                r1.TextureBmp = frm.TextureBmp;
+
+                r1.newText = frm.newText;
+                r1.newFont = frm.newFont;
 
                 allDraw.Add(r1);
             }
@@ -291,6 +411,38 @@ namespace PhotoPaint
                 // allDraw.Add(allDraw.Last<Primitives>);
             }
 
+            #region Слои
+
+            public void Top()
+            {
+                if (allDraw.Count > 0)
+                {
+                    allDraw.Add(undoElement[undoElement.Count - 1]);
+                }
+            }
+
+            public List<Primitives> clone()
+            {
+                List<Primitives> primitivesList = new List<Primitives>();
+                for (int i = 0; i < allDraw.Count; i++)
+                {
+                    primitivesList.Add(allDraw[i]);
+                }
+                return primitivesList;
+            }
+
+            public void undo2()
+            {
+                if (allDraw.Count > 0)
+                {
+                    undoElement.Add(allDraw[allDraw.Count - 1]);
+                    allDraw.RemoveAt(allDraw.Count - 1);
+                }
+            }
+
+
+            #endregion
+
 
         }
 
@@ -306,7 +458,9 @@ namespace PhotoPaint
         [XmlIgnore]
         public Pen pen { get; set; }
         [XmlIgnore]
-        public Brush brush { get; set; }
+        public Brush brush { get; set; } = new SolidBrush(Color.Black);
+        public Font newFont { get; set; } = new Font("Arial", 20);
+        public String newText { get; set; } = "Sample Text";
 
         [XmlIgnore]
         // Заливка фигуры градиентом
@@ -314,7 +468,9 @@ namespace PhotoPaint
         public Color lgbFrom = Color.AliceBlue;
         public Color lgbTo = Color.Red;
         public float lgbPos = 0;
-        
+
+
+
         // Заливка фигуры 1 цветом
         public Color solidG = Color.Red;
 

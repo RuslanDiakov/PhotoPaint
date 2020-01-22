@@ -19,9 +19,9 @@ namespace PhotoPaint
         public Main()
         {
             InitializeComponent();
-        }
+        }        
 
-        public Main(int width_panel, int height_panel, Color backColor_panel)
+        public Main(int width_panel, int height_panel, Color backColor_panel, Bitmap bitmapOpen)
         {
             this.width_panel = width_panel;
             this.height_panel = height_panel;
@@ -30,6 +30,7 @@ namespace PhotoPaint
             DrawPanel.Width = width_panel;
             DrawPanel.Height = height_panel;
             DrawPanel.BackColor = backColor_panel;
+            DrawPanel.BackgroundImage = bitmapOpen;
             toolStripTextBox_width.Text = Convert.ToString(width_panel);
             toolStripTextBox_height.Text = Convert.ToString(height_panel);
 
@@ -80,12 +81,36 @@ namespace PhotoPaint
             DrawPanel.BackColor = color.Color;
         }
 
+        private void toolStripButton_ShowLayers_Click(object sender, EventArgs e)
+        {
+            LayersForm layersForm = new LayersForm(ref DrawPanel);
+            layersForm.ShowDialog();
+            if (layersForm.DialogResult == DialogResult.OK) 
+            { 
+                DrawingModel.getInstance().allDraw = layersForm.temp; 
+            }
+            DrawPanel.Invalidate();
+        }
+
         private void Main_MouseMove(object sender, MouseEventArgs e)
         {
             toolStripLabel_mousePos.Text = $" X = {e.X}  Y = {e.Y}";
         }
 
-        #region Изменения цвета пера и заливки
+        #region Изменения цвета пера, заливки, текста
+
+        private void toolStripTextBox_TextChanged(object sender, EventArgs e)
+        {
+            newText = toolStripTextBox.Text;
+        }
+
+        private void toolStripButton_setTexP_Click(object sender, EventArgs e)
+        {
+            var text = new FontDialog();
+            text.Font = newFont;
+            if (text.ShowDialog() != DialogResult.OK) return;
+            newFont = text.Font;
+        }
 
         private void toolStripButton_PenColor_Click(object sender, EventArgs e)
         {
@@ -231,7 +256,17 @@ namespace PhotoPaint
         {
             CurrentDraw = DrawMode.Rectangle;
         }
+       
+        private void toolStripButton_createPoint_Click(object sender, EventArgs e)
+        {
+            CurrentDraw = DrawMode.Point;
+        }
 
+        private void toolStripButton_createText_Click(object sender, EventArgs e)
+        {
+            CurrentDraw = DrawMode.Text;
+        }
+       
         #endregion
 
         #region События росования на форме
@@ -248,11 +283,15 @@ namespace PhotoPaint
             startX = e.X; startY = e.Y;
             switch (CurrentDraw)
             {
+                case DrawMode.None:
+                    break;
+
                 case DrawMode.Line:
                     DrawingModel.getInstance().CreateLine(this);
                     break;
 
-                case DrawMode.None:
+                case DrawMode.Point:
+                    DrawingModel.getInstance().CreatePoint(this);
                     break;
 
                 case DrawMode.Ellipse:
@@ -261,6 +300,10 @@ namespace PhotoPaint
 
                 case DrawMode.Rectangle:
                     DrawingModel.getInstance().CreateRectangle(this);
+                    break;
+
+                case DrawMode.Text:
+                    DrawingModel.getInstance().CreateText(this);
                     break;
 
                 default:
@@ -284,7 +327,16 @@ namespace PhotoPaint
             {
                 case DrawMode.None:
                     break;
+
                 case DrawMode.Line:
+                    if (DrawingModel.getInstance().GetLast() == null) break;
+                    //toolStripButton_createEllipse.BackColor = Color.Yellow;
+                    DrawingModel.getInstance().GetLast().endX = e.X;
+                    DrawingModel.getInstance().GetLast().endY = e.Y;
+                    DrawPanel.Invalidate();
+                    break;
+
+                case DrawMode.Point:
                     if (DrawingModel.getInstance().GetLast() == null) break;
                     //toolStripButton_createEllipse.BackColor = Color.Yellow;
                     DrawingModel.getInstance().GetLast().endX = e.X;
@@ -307,6 +359,16 @@ namespace PhotoPaint
                     DrawingModel.getInstance().GetLast().endY = e.Y;
                     DrawPanel.Invalidate();
                     break;
+
+                case DrawMode.Text:
+                    if (DrawingModel.getInstance().GetLast() == null) break;
+                    //toolStripButton_createEllipse.BackColor = Color.Yellow;
+                    DrawingModel.getInstance().GetLast().endX = e.X;
+                    DrawingModel.getInstance().GetLast().endY = e.Y;
+                    DrawPanel.Invalidate();
+                    break;
+
+
                 default:
                     break;
             }
@@ -416,6 +478,7 @@ namespace PhotoPaint
         private void сохранитькакToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var dlg = new SaveFileDialog();
+            dlg.FileName = "Untitled";
             dlg.Filter = "";
             ImageCodecInfo[] codecs = ImageCodecInfo.GetImageEncoders();
             string sep = string.Empty;
@@ -447,6 +510,40 @@ namespace PhotoPaint
 
         }
 
+        private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var dlg = new OpenFileDialog();
+            dlg.Filter = "";
+            ImageCodecInfo[] codecs = ImageCodecInfo.GetImageEncoders();
+            string sep = string.Empty;
+
+            foreach (var c in codecs)
+            {
+                string codecName = c.CodecName.Substring(8).Replace("Codec", "Files").Trim();
+                dlg.Filter = String.Format("{0}{1}{2} ({3})|{3}", dlg.Filter, sep, codecName, c.FilenameExtension);
+                sep = "|";
+            }
+
+            dlg.Filter = String.Format("{0}{1}{2} ({3})|{3}", dlg.Filter, sep, "All Files", "*.*");
+            dlg.DefaultExt = ".png";
+
+            if (dlg.ShowDialog() != DialogResult.OK) return;
+            try
+            {
+                Bitmap toOpen = new Bitmap(dlg.FileName);
+                DrawPanel.BackgroundImage = toOpen;
+                DrawPanel.Width = toOpen.Width;
+                DrawPanel.Height = toOpen.Height;
+
+                DrawPanel.Invalidate();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Не удалось открыть холст!\nПопробуйте изменить размер", "Error");
+                return;
+            }
+        }
+        
         private void предварительныйпросмотрToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Preview preview = new Preview(DrawPanel);
@@ -458,7 +555,7 @@ namespace PhotoPaint
         #region Меню правка
         private void очиститьВсёToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            
 
         }
 
@@ -566,13 +663,15 @@ namespace PhotoPaint
         public int height_panel = 500;
         public Color backColor_panel = Color.LightGray;
 
-        enum DrawMode { None, Point, Line, Ellipse, Rectangle };
+        enum DrawMode { None, Point, Line, Ellipse, Rectangle, Text };
         DrawMode CurrentDraw = DrawMode.None;
         bool isDrawing = false;
 
         public int startX, startY;
         public int endX, endY;
         public Pen pen;
+        public Font newFont = new Font("Arial", 20);
+        public String newText = "Sample Text";
 
         public GradientType BrashType = GradientType.Transparent;
 
