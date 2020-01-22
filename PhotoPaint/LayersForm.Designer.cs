@@ -32,12 +32,11 @@
             this.lb_layers = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.b_up = new System.Windows.Forms.Button();
-            this.b_up1 = new System.Windows.Forms.Button();
+            this.b_save = new System.Windows.Forms.Button();
             this.b_down1 = new System.Windows.Forms.Button();
             this.b_down = new System.Windows.Forms.Button();
-            this.b_cancle = new System.Windows.Forms.Button();
-            this.b_save = new System.Windows.Forms.Button();
+            this.b_up1 = new System.Windows.Forms.Button();
+            this.b_up = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -70,7 +69,6 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.b_cancle);
             this.groupBox2.Controls.Add(this.b_save);
             this.groupBox2.Controls.Add(this.b_down1);
             this.groupBox2.Controls.Add(this.b_down);
@@ -85,29 +83,17 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Меню";
             // 
-            // b_up
+            // b_save
             // 
-            this.b_up.BackColor = System.Drawing.Color.Green;
-            this.b_up.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.b_up.Location = new System.Drawing.Point(6, 25);
-            this.b_up.Name = "b_up";
-            this.b_up.Size = new System.Drawing.Size(118, 26);
-            this.b_up.TabIndex = 0;
-            this.b_up.Text = "Вверх";
-            this.b_up.UseVisualStyleBackColor = false;
-            this.b_up.Click += new System.EventHandler(this.b_up_Click);
-            // 
-            // b_up1
-            // 
-            this.b_up1.BackColor = System.Drawing.Color.Green;
-            this.b_up1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.b_up1.Location = new System.Drawing.Point(6, 57);
-            this.b_up1.Name = "b_up1";
-            this.b_up1.Size = new System.Drawing.Size(118, 26);
-            this.b_up1.TabIndex = 1;
-            this.b_up1.Text = "На 1 выше";
-            this.b_up1.UseVisualStyleBackColor = false;
-            this.b_up1.Click += new System.EventHandler(this.b_up1_Click);
+            this.b_save.BackColor = System.Drawing.Color.DodgerBlue;
+            this.b_save.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.b_save.Location = new System.Drawing.Point(6, 332);
+            this.b_save.Name = "b_save";
+            this.b_save.Size = new System.Drawing.Size(118, 26);
+            this.b_save.TabIndex = 4;
+            this.b_save.Text = "Ok";
+            this.b_save.UseVisualStyleBackColor = false;
+            this.b_save.Click += new System.EventHandler(this.b_save_Click);
             // 
             // b_down1
             // 
@@ -133,29 +119,29 @@
             this.b_down.UseVisualStyleBackColor = false;
             this.b_down.Click += new System.EventHandler(this.b_down_Click);
             // 
-            // b_cancle
+            // b_up1
             // 
-            this.b_cancle.BackColor = System.Drawing.Color.OrangeRed;
-            this.b_cancle.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.b_cancle.Location = new System.Drawing.Point(6, 332);
-            this.b_cancle.Name = "b_cancle";
-            this.b_cancle.Size = new System.Drawing.Size(118, 26);
-            this.b_cancle.TabIndex = 5;
-            this.b_cancle.Text = "Отмена";
-            this.b_cancle.UseVisualStyleBackColor = false;
-            this.b_cancle.Click += new System.EventHandler(this.b_cancle_Click);
+            this.b_up1.BackColor = System.Drawing.Color.Green;
+            this.b_up1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.b_up1.Location = new System.Drawing.Point(6, 57);
+            this.b_up1.Name = "b_up1";
+            this.b_up1.Size = new System.Drawing.Size(118, 26);
+            this.b_up1.TabIndex = 1;
+            this.b_up1.Text = "На 1 выше";
+            this.b_up1.UseVisualStyleBackColor = false;
+            this.b_up1.Click += new System.EventHandler(this.b_up1_Click);
             // 
-            // b_save
+            // b_up
             // 
-            this.b_save.BackColor = System.Drawing.Color.DodgerBlue;
-            this.b_save.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.b_save.Location = new System.Drawing.Point(6, 300);
-            this.b_save.Name = "b_save";
-            this.b_save.Size = new System.Drawing.Size(118, 26);
-            this.b_save.TabIndex = 4;
-            this.b_save.Text = "Сохранить";
-            this.b_save.UseVisualStyleBackColor = false;
-            this.b_save.Click += new System.EventHandler(this.b_save_Click);
+            this.b_up.BackColor = System.Drawing.Color.Green;
+            this.b_up.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.b_up.Location = new System.Drawing.Point(6, 25);
+            this.b_up.Name = "b_up";
+            this.b_up.Size = new System.Drawing.Size(118, 26);
+            this.b_up.TabIndex = 0;
+            this.b_up.Text = "Вверх";
+            this.b_up.UseVisualStyleBackColor = false;
+            this.b_up.Click += new System.EventHandler(this.b_up_Click);
             // 
             // LayersForm
             // 
@@ -182,7 +168,6 @@
         private System.Windows.Forms.ListBox lb_layers;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button b_cancle;
         private System.Windows.Forms.Button b_save;
         private System.Windows.Forms.Button b_down1;
         private System.Windows.Forms.Button b_down;

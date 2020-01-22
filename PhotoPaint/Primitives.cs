@@ -53,7 +53,7 @@ namespace PhotoPaint
         {
             try
             {
-                return $" Цвет обводки: {pen.Color.ToString()} | Толщина: {pen.Width.ToString()}" +
+                return $"Цвет обводки: {pen.Color.ToString()} | Толщина: {pen.Width.ToString()}" +
                 $" | Заливка: {solidG}";
             }
             catch { return "Text - " + newText; }
@@ -64,6 +64,12 @@ namespace PhotoPaint
         /// </summary>
         public class Ellipse : Primitives
         {
+            public override string ToString()
+            {
+                return $"Фигура: Элипс | Цвет обводки: {pen.Color.ToString()} | Толщина: {pen.Width.ToString()}" +
+                $" | Заливка: {solidG}";
+            }
+
             public override void Paint(Graphics g)
             {
                 if (endX - startX == 0 || endY - startY == 0) return;
@@ -98,6 +104,12 @@ namespace PhotoPaint
         /// </summary>
         public class Rectangle_figure : Primitives
         {
+            public override string ToString()
+            {
+                return $"Фигура: Прямоугольник | Цвет обводки: {pen.Color.ToString()} | Толщина: {pen.Width.ToString()}" +
+                $" | Заливка: {solidG}";
+            }
+
             public override void Paint(Graphics g)
             {
                 if (endX - startX == 0 || endY - startY == 0) return;
@@ -132,6 +144,11 @@ namespace PhotoPaint
         /// </summary>
         public class Line_figure : Primitives
         {
+            public override string ToString()
+            {
+                return $"Фигура: Линия | Цвет обводки: {pen.Color.ToString()} | Толщина: {pen.Width.ToString()}" +
+                $" | Заливка: {solidG}";
+            }
             public override void Paint(Graphics g)
             {
                 //  if (endX - startX == 0 || endY - startY == 0) return;                               
@@ -144,34 +161,38 @@ namespace PhotoPaint
         /// </summary>
         public class Text_figure : Primitives
         {
+            public override string ToString()
+            {
+                return $"Текст | {newText}";
+            }
             public override void Paint(Graphics g)
             {
                 PointF drawPoint = new PointF(startX, startY);
                 Rectangle r = new Rectangle(startX, startY, endX - startX, endY - startY);
+                SolidBrush solid = new SolidBrush(solidG);
 
                 switch (BrushType)
                 {
                     case GradientType.Line:
-                        //try
-                        //{
-                        //    LinearGradientBrush lgb = new LinearGradientBrush(r, lgbFrom, lgbTo, lgbPos, true);
-                        //    g.DrawString(newText, newFont, lgb, drawPoint);
-                        //    break;
-                        //}
-                        //catch (Exception)
-                        //{
-                        //    MessageBox.Show("Ошибка при заполнении градиентом\n" +
-                        //        "Возможное решение:\n" +
-                        //        "Переместите курсок на конец текста","Error");
-                        //    break;
-                        //}
-                        
+                        /* try
+                         {
+                             LinearGradientBrush lgb = new LinearGradientBrush(r, lgbFrom, lgbTo, lgbPos, true);
+                             g.DrawString(newText, newFont, lgb, drawPoint);
+                             break;
+                         }
+                         catch (Exception)
+                         {
+                             MessageBox.Show("Ошибка при заполнении градиентом\n" +
+                                 "Возможное решение:\n" +
+                                 "Переместите курсок на конец текста", "Error");
+                             break;
+                         }*/
+
                         LinearGradientBrush lgb = new LinearGradientBrush(r, lgbFrom, lgbTo, lgbPos, true);
                         g.DrawString(newText, newFont, lgb, drawPoint);
                         break;
 
                     case GradientType.Solid:
-                        SolidBrush solid = new SolidBrush(solidG);
                         g.DrawString(newText, newFont, solid, drawPoint);
                         break;
                     case GradientType.Hatch:
@@ -183,6 +204,10 @@ namespace PhotoPaint
                         g.DrawString(newText, newFont, textureBrush, drawPoint);
 
                         break;
+                    default:
+                        g.DrawString(newText, newFont, solid, drawPoint);
+                        break;
+
                 }
 
                 //SolidBrush solid = new SolidBrush(solidG);
@@ -195,10 +220,11 @@ namespace PhotoPaint
         {
             public override void Paint(Graphics g)
             {
-
-                g.DrawLine(pen, startX, startY, startX, startY);
-
-
+                Point point1 = new Point(startX, startY);
+                Point point2 = new Point(endX, endY);
+                g.DrawLine(pen, point1, point2);
+                point1.X = point2.X;
+                point1.Y = point2.Y;
             }
         }
 

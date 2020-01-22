@@ -152,6 +152,11 @@
     <None Include="Resources\Font.jpg" />
     <None Include="Resources\Font2.jpg" />
     <None Include="Resources\Font3.jpg" />
+    <None Include="Resources\DS_solid.jpg" />
+    <None Include="Resources\DS_Dash.jpg" />
+    <None Include="Resources\DS_DashDot.jpg" />
+    <None Include="Resources\DS_DashDotDot.jpg" />
+    <None Include="Resources\DS_Dot.jpg" />
     <Content Include="Resources\z2.1.jpg" />
     <Content Include="Resources\z2.10.jpg" />
     <Content Include="Resources\z2.2.jpg" />

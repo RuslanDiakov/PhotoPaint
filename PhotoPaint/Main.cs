@@ -19,7 +19,7 @@ namespace PhotoPaint
         public Main()
         {
             InitializeComponent();
-        }        
+        }
 
         public Main(int width_panel, int height_panel, Color backColor_panel, Bitmap bitmapOpen)
         {
@@ -39,7 +39,7 @@ namespace PhotoPaint
             lgbFrom = Color.AliceBlue;
             lgbTo = Color.Red;
             lgbPos = 0;
-            solidG = Color.Red;
+            solidG = Color.Black;
             hatchColor = Color.Black;
             hatchStyle = HatchStyle.Percent50;
 
@@ -85,9 +85,9 @@ namespace PhotoPaint
         {
             LayersForm layersForm = new LayersForm(ref DrawPanel);
             layersForm.ShowDialog();
-            if (layersForm.DialogResult == DialogResult.OK) 
-            { 
-                DrawingModel.getInstance().allDraw = layersForm.temp; 
+            if (layersForm.DialogResult == DialogResult.OK)
+            {
+                DrawingModel.getInstance().allDraw = layersForm.temp;
             }
             DrawPanel.Invalidate();
         }
@@ -256,7 +256,7 @@ namespace PhotoPaint
         {
             CurrentDraw = DrawMode.Rectangle;
         }
-       
+
         private void toolStripButton_createPoint_Click(object sender, EventArgs e)
         {
             CurrentDraw = DrawMode.Point;
@@ -266,7 +266,7 @@ namespace PhotoPaint
         {
             CurrentDraw = DrawMode.Text;
         }
-       
+
         #endregion
 
         #region События росования на форме
@@ -291,7 +291,7 @@ namespace PhotoPaint
                     break;
 
                 case DrawMode.Point:
-                    DrawingModel.getInstance().CreatePoint(this);
+                    //DrawingModel.getInstance().CreatePoint(this);
                     break;
 
                 case DrawMode.Ellipse:
@@ -304,6 +304,7 @@ namespace PhotoPaint
 
                 case DrawMode.Text:
                     DrawingModel.getInstance().CreateText(this);
+                    DrawPanel.Invalidate();
                     break;
 
                 default:
@@ -314,15 +315,18 @@ namespace PhotoPaint
         private void DrawPanel_MouseUp(object sender, MouseEventArgs e)
         {
             isDrawing = false;
+            Bottom_lable_straight.Text = "no";
         }
 
         private void DrawPanel_MouseMove(object sender, MouseEventArgs e)
         {
+           // Graphics g = new Graphics;
             toolStripLabel_mousePos.Text = $" X = {e.X}  Y = {e.Y}";
 
             if (!isDrawing) return;
             endX = e.X;
             endY = e.Y;
+            
             switch (CurrentDraw)
             {
                 case DrawMode.None:
@@ -330,17 +334,34 @@ namespace PhotoPaint
 
                 case DrawMode.Line:
                     if (DrawingModel.getInstance().GetLast() == null) break;
-                    //toolStripButton_createEllipse.BackColor = Color.Yellow;
-                    DrawingModel.getInstance().GetLast().endX = e.X;
-                    DrawingModel.getInstance().GetLast().endY = e.Y;
-                    DrawPanel.Invalidate();
-                    break;
 
+                    if ((Control.ModifierKeys & Keys.Shift) == Keys.Shift)
+                    {
+                        DrawingModel.getInstance().GetLast().endX = e.X;
+                        DrawingModel.getInstance().GetLast().endY = startY;
+                        Bottom_lable_straight.Text = "Прямая горизонтальная линия -";
+                        DrawPanel.Invalidate();
+                    }                   
+                    else if ((Control.ModifierKeys & Keys.Control) == Keys.Control)
+                    {
+                        DrawingModel.getInstance().GetLast().endX = startX;
+                        DrawingModel.getInstance().GetLast().endY = e.Y;
+                        Bottom_lable_straight.Text = "Прямая вертикальная линия |";
+                        DrawPanel.Invalidate();
+                    }
+                    else
+                    {
+                        DrawingModel.getInstance().GetLast().endX = e.X;
+                        DrawingModel.getInstance().GetLast().endY = e.Y;
+                        Bottom_lable_straight.Text = "no";
+                        DrawPanel.Invalidate();
+                    }
+                    break;
+                    
                 case DrawMode.Point:
-                    if (DrawingModel.getInstance().GetLast() == null) break;
-                    //toolStripButton_createEllipse.BackColor = Color.Yellow;
-                    DrawingModel.getInstance().GetLast().endX = e.X;
-                    DrawingModel.getInstance().GetLast().endY = e.Y;
+                    //g.DrawLine(pen, startX,startY, endX, endY);
+                    //startX = e.X;
+                    //startY = e.Y;
                     DrawPanel.Invalidate();
                     break;
 
@@ -362,7 +383,7 @@ namespace PhotoPaint
 
                 case DrawMode.Text:
                     if (DrawingModel.getInstance().GetLast() == null) break;
-                    //toolStripButton_createEllipse.BackColor = Color.Yellow;
+                    //toolStripButton_createText.BackColor = Color.Yellow;
                     DrawingModel.getInstance().GetLast().endX = e.X;
                     DrawingModel.getInstance().GetLast().endY = e.Y;
                     DrawPanel.Invalidate();
@@ -381,71 +402,89 @@ namespace PhotoPaint
         private void StartCap_type3_Click_1(object sender, EventArgs e)
         {
             pen.StartCap = LineCap.Round;
+            toolStrip_StartPen.Image = StartCap_type3.Image;
         }
 
         private void StartCap_type7_Click_1(object sender, EventArgs e)
         {
             pen.StartCap = LineCap.Triangle;
+            toolStrip_StartPen.Image = StartCap_type7.Image;
         }
 
         private void StartCap_type2_Click(object sender, EventArgs e)
         {
             pen.StartCap = LineCap.ArrowAnchor;
+            toolStrip_StartPen.Image = StartCap_type2.Image;
         }
 
         private void StartCap_type4_Click(object sender, EventArgs e)
         {
             pen.StartCap = LineCap.DiamondAnchor;
+            toolStrip_StartPen.Image = StartCap_type4.Image;
         }
 
         private void StartCap_type6_Click(object sender, EventArgs e)
         {
             pen.StartCap = LineCap.NoAnchor;
+            toolStrip_StartPen.Image = StartCap_type1.Image;
         }
 
         private void StartCap_type8_Click(object sender, EventArgs e)
         {
             pen.StartCap = LineCap.RoundAnchor;
+            toolStrip_StartPen.Image = StartCap_type5.Image;
         }
 
         private void StartCap_type10_Click(object sender, EventArgs e)
         {
             pen.StartCap = LineCap.SquareAnchor;
+            toolStrip_StartPen.Image = StartCap_type6.Image;
         }
+
+        /// <summary>
+        /// CapEnd
+        /// </summary>
 
         private void StartCapEnd_type1_Click(object sender, EventArgs e)
         {
             pen.EndCap = LineCap.NoAnchor;
+            toolStrip_EndPen.Image = StartCapEnd_type1.Image;
         }
 
         private void StartCapEnd_type2_Click(object sender, EventArgs e)
         {
             pen.EndCap = LineCap.ArrowAnchor;
+            toolStrip_EndPen.Image = StartCapEnd_type2.Image;
         }
 
         private void StartCapEnd_type3_Click(object sender, EventArgs e)
         {
             pen.EndCap = LineCap.Round;
+            toolStrip_EndPen.Image = StartCapEnd_type3.Image;
         }
 
         private void StartCapEnd_type4_Click(object sender, EventArgs e)
         {
             pen.EndCap = LineCap.DiamondAnchor;
+            toolStrip_EndPen.Image = StartCapEnd_type4.Image;
         }
 
         private void StartCapEnd_type5_Click(object sender, EventArgs e)
         {
             pen.EndCap = LineCap.RoundAnchor;
+            toolStrip_EndPen.Image = StartCapEnd_type5.Image;
         }
 
         private void StartCapEnd_type6_Click(object sender, EventArgs e)
         {
             pen.EndCap = LineCap.SquareAnchor;
+            toolStrip_EndPen.Image = StartCapEnd_type6.Image;
         }
 
         private void StartCapEnd_type7_Click(object sender, EventArgs e)
         {
             pen.EndCap = LineCap.Triangle;
+            toolStrip_EndPen.Image = StartCapEnd_type7.Image;
         }
 
         #endregion
@@ -512,6 +551,7 @@ namespace PhotoPaint
 
         private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
             var dlg = new OpenFileDialog();
             dlg.Filter = "";
             ImageCodecInfo[] codecs = ImageCodecInfo.GetImageEncoders();
@@ -534,6 +574,9 @@ namespace PhotoPaint
                 DrawPanel.BackgroundImage = toOpen;
                 DrawPanel.Width = toOpen.Width;
                 DrawPanel.Height = toOpen.Height;
+                toolStripTextBox_width.Text = $"{toOpen.Width}";
+                toolStripTextBox_height.Text = $"{toOpen.Height}";
+                
 
                 DrawPanel.Invalidate();
             }
@@ -544,6 +587,7 @@ namespace PhotoPaint
             }
         }
         
+
         private void предварительныйпросмотрToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Preview preview = new Preview(DrawPanel);
@@ -555,7 +599,7 @@ namespace PhotoPaint
         #region Меню правка
         private void очиститьВсёToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
 
         }
 
@@ -652,7 +696,39 @@ namespace PhotoPaint
 
         #endregion
 
+        #region DashStyle
 
+        private void DashStyle_Solid_Click(object sender, EventArgs e)
+        {
+            pen.DashStyle = DashStyle.Solid;
+            ts_DashStyle.Image = DashStyle_Solid.Image;
+        }
+
+        private void DashStyle_Dash_Click(object sender, EventArgs e)
+        {
+            pen.DashStyle = DashStyle.Dash;
+            ts_DashStyle.Image = DashStyle_Dash.Image;
+        }
+
+        private void DashStyle_DashDot_Click(object sender, EventArgs e)
+        {
+            pen.DashStyle = DashStyle.DashDot;
+            ts_DashStyle.Image = DashStyle_DashDot.Image;
+        }
+
+        private void DashStyle_Dash_Dot_Dot_Click(object sender, EventArgs e)
+        {
+            pen.DashStyle = DashStyle.DashDotDot;
+            ts_DashStyle.Image = DashStyle_Dash_Dot_Dot.Image;
+        }
+
+        private void DashStyle_Dot_Click(object sender, EventArgs e)
+        {
+            pen.DashStyle = DashStyle.Dot;
+            ts_DashStyle.Image = DashStyle_Dot.Image;
+        }
+
+        #endregion
 
 
 
@@ -672,6 +748,7 @@ namespace PhotoPaint
         public Pen pen;
         public Font newFont = new Font("Arial", 20);
         public String newText = "Sample Text";
+        public Point Ppoint;
 
         public GradientType BrashType = GradientType.Transparent;
 
@@ -679,13 +756,11 @@ namespace PhotoPaint
         public Color lgbTo = Color.Aqua;
         public float lgbPos = 0;
 
-        public Color solidG = Color.Red;
+        public Color solidG = Color.Black;
 
         public HatchStyle hatchStyle;
         static int lastposX = 3;
         static int lastposY = 3;
-
-        
 
         public Color hatchColor;
 

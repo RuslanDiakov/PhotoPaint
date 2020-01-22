@@ -82,10 +82,5 @@ namespace PhotoPaint
         {
             DialogResult = DialogResult.OK;
         }
-
-        private void b_cancle_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.Cancel;
-        }
     }
 }

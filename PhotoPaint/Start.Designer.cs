@@ -39,6 +39,7 @@
             this.button_m_2 = new System.Windows.Forms.Button();
             this.button_m_1 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button_open = new System.Windows.Forms.Button();
             this.button_exit = new System.Windows.Forms.Button();
             this.button_checkBackColor = new System.Windows.Forms.Button();
             this.cb_backColor = new System.Windows.Forms.ComboBox();
@@ -47,7 +48,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button_open = new System.Windows.Forms.Button();
+            this.button_clear = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -165,6 +166,7 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.DimGray;
+            this.groupBox2.Controls.Add(this.button_clear);
             this.groupBox2.Controls.Add(this.button_open);
             this.groupBox2.Controls.Add(this.button_exit);
             this.groupBox2.Controls.Add(this.button_checkBackColor);
@@ -183,6 +185,21 @@
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Настраиваемый";
+            this.groupBox2.Paint += new System.Windows.Forms.PaintEventHandler(this.groupBox2_Paint);
+            // 
+            // button_open
+            // 
+            this.button_open.BackColor = System.Drawing.Color.Chartreuse;
+            this.button_open.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button_open.Font = new System.Drawing.Font("Myriad Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_open.ForeColor = System.Drawing.Color.Black;
+            this.button_open.Location = new System.Drawing.Point(10, 181);
+            this.button_open.Name = "button_open";
+            this.button_open.Size = new System.Drawing.Size(81, 26);
+            this.button_open.TabIndex = 10;
+            this.button_open.Text = "Открыть";
+            this.button_open.UseVisualStyleBackColor = false;
+            this.button_open.Click += new System.EventHandler(this.button_open_Click);
             // 
             // button_exit
             // 
@@ -278,19 +295,19 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Ширина";
             // 
-            // button_open
+            // button_clear
             // 
-            this.button_open.BackColor = System.Drawing.Color.Chartreuse;
-            this.button_open.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button_open.Font = new System.Drawing.Font("Myriad Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_open.ForeColor = System.Drawing.Color.Black;
-            this.button_open.Location = new System.Drawing.Point(10, 181);
-            this.button_open.Name = "button_open";
-            this.button_open.Size = new System.Drawing.Size(81, 26);
-            this.button_open.TabIndex = 10;
-            this.button_open.Text = "Открыть";
-            this.button_open.UseVisualStyleBackColor = false;
-            this.button_open.Click += new System.EventHandler(this.button_open_Click);
+            this.button_clear.BackColor = System.Drawing.Color.OrangeRed;
+            this.button_clear.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button_clear.Font = new System.Drawing.Font("Myriad Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_clear.ForeColor = System.Drawing.Color.White;
+            this.button_clear.Location = new System.Drawing.Point(97, 181);
+            this.button_clear.Name = "button_clear";
+            this.button_clear.Size = new System.Drawing.Size(97, 26);
+            this.button_clear.TabIndex = 11;
+            this.button_clear.Text = "Очистить";
+            this.button_clear.UseVisualStyleBackColor = false;
+            this.button_clear.Click += new System.EventHandler(this.button_clear_Click);
             // 
             // Start
             // 
@@ -339,5 +356,6 @@
         private System.Windows.Forms.ComboBox cb_backColor;
         private System.Windows.Forms.Button button_exit;
         private System.Windows.Forms.Button button_open;
+        private System.Windows.Forms.Button button_clear;
     }
 }

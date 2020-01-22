@@ -11,6 +11,9 @@ namespace PhotoPaint
         public int height;
         public Color backColor = Color.LightGray;
         Bitmap toOpen;
+        Bitmap clear;
+        bool load = false;
+        Graphics g;
         public Start()
         {
             InitializeComponent();
@@ -30,9 +33,17 @@ namespace PhotoPaint
             height = Convert.ToInt32(tb_height.Text);
             backColor = button_checkBackColor.BackColor;
 
-            //this.Hide();  
-            Main LoadForm = new Main(width, height, backColor, toOpen);
-            LoadForm.Show();
+            //this.Hide(); 
+            if (load)
+            {
+                Main LoadForm2 = new Main(width, height, backColor, toOpen);
+                LoadForm2.Show();
+            }
+            else
+            {
+                Main LoadForm1 = new Main(width, height, backColor, clear);
+                LoadForm1.Show();
+            }
         }
 
         private void cb_backColor_SelectedIndexChanged(object sender, EventArgs e)
@@ -92,12 +103,55 @@ namespace PhotoPaint
                 height = toOpen.Height;
                 tb_width.Text = Convert.ToString(width);
                 tb_height.Text = Convert.ToString(height);
+                groupBox2.Invalidate();
+                load = true;
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Не удалось открыть холст!\nПопробуйте изменить размер", "Error");
                 return;
             }
+        }
+        private void groupBox2_Paint(object sender, PaintEventArgs e)
+        {
+            g = e.Graphics;
+            if (load)
+            {
+                Bitmap objBitmap = new Bitmap(toOpen, new Size(180, 120));
+                Rectangle rectTexture = new Rectangle(10, 215, 180, 120);               
+                try
+                {
+                    TextureBrush textureBrush = new TextureBrush(objBitmap);
+                    //g.FillRectangle(textureBrush, rectTexture);
+                    PointF ulCorner = new PointF(10.0F, 215.0F);
+                    g.DrawImage(objBitmap, ulCorner);
+                    g.Dispose();
+                }
+                catch (Exception)
+                {
+                    return;
+                }
+            }
+            if(delImg)
+            {
+              
+                SolidBrush solid = new SolidBrush(Color.DimGray);
+                Rectangle r = new Rectangle(10, 215, 180, 120);
+                g.FillRectangle(solid, r);
+                groupBox2.Invalidate();
+                delImg = false;
+            }
+
+        }
+        bool delImg = false;
+        private void button_clear_Click(object sender, EventArgs e)
+        {
+            delImg = true;
+            load = false;
+            tb_width.Text = "500";
+            tb_height.Text = "500";
+            button_checkBackColor.BackColor = Color.LightGray;
+            groupBox2.Invalidate();
         }
 
         #region КнопкиМакетов
@@ -143,8 +197,8 @@ namespace PhotoPaint
             tb_height.Text = "800";
             cb_backColor.SelectedIndex = 0;
         }
-        #endregion
 
 
+        #endregion             
     }
 }
