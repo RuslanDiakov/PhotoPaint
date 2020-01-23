@@ -95,7 +95,42 @@ namespace PhotoPaint
         private void Main_MouseMove(object sender, MouseEventArgs e)
         {
             toolStripLabel_mousePos.Text = $" X = {e.X}  Y = {e.Y}";
+            //if (CurrentDraw == DrawMode.DragImg)
+            //{
+            //    DrawPanel.Invalidate();
+            //}
         }
+
+
+        #region DragDrog
+
+        private void DrawPanel_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                string[] s = (string[])e.Data.GetData(DataFormats.FileDrop);
+                if (s.Length == 1)
+                {
+                    e.Effect = DragDropEffects.Copy;
+                    DrawPanel.Invalidate();
+                }
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+            }
+        }
+
+        private void DrawPanel_DragDrop(object sender, DragEventArgs e)
+        {
+            string[] s = (string[])e.Data.GetData(DataFormats.FileDrop);
+            LoadTempImg = new Bitmap(s[0]);
+            isLoadTempImg = true;
+            CurrentDraw = DrawMode.DragImg;
+            DrawPanel.Invalidate();
+        }
+
+        #endregion
 
         #region Изменения цвета пера, заливки, текста
 
@@ -304,7 +339,11 @@ namespace PhotoPaint
 
                 case DrawMode.Text:
                     DrawingModel.getInstance().CreateText(this);
-                    DrawPanel.Invalidate();
+                    // DrawPanel.Invalidate();DragImg
+                    break;
+
+                case DrawMode.DragImg:
+                    DrawingModel.getInstance().CreateImg(this);
                     break;
 
                 default:
@@ -316,17 +355,22 @@ namespace PhotoPaint
         {
             isDrawing = false;
             Bottom_lable_straight.Text = "no";
+
+            if (CurrentDraw == DrawMode.DragImg)
+            {
+                CurrentDraw = DrawMode.None;
+            }
         }
 
         private void DrawPanel_MouseMove(object sender, MouseEventArgs e)
         {
-           // Graphics g = new Graphics;
+            // Graphics g = new Graphics;
             toolStripLabel_mousePos.Text = $" X = {e.X}  Y = {e.Y}";
 
             if (!isDrawing) return;
             endX = e.X;
             endY = e.Y;
-            
+
             switch (CurrentDraw)
             {
                 case DrawMode.None:
@@ -341,7 +385,7 @@ namespace PhotoPaint
                         DrawingModel.getInstance().GetLast().endY = startY;
                         Bottom_lable_straight.Text = "Прямая горизонтальная линия -";
                         DrawPanel.Invalidate();
-                    }                   
+                    }
                     else if ((Control.ModifierKeys & Keys.Control) == Keys.Control)
                     {
                         DrawingModel.getInstance().GetLast().endX = startX;
@@ -357,7 +401,7 @@ namespace PhotoPaint
                         DrawPanel.Invalidate();
                     }
                     break;
-                    
+
                 case DrawMode.Point:
                     //g.DrawLine(pen, startX,startY, endX, endY);
                     //startX = e.X;
@@ -389,6 +433,13 @@ namespace PhotoPaint
                     DrawPanel.Invalidate();
                     break;
 
+                case DrawMode.DragImg:
+                    if (DrawingModel.getInstance().GetLast() == null) break;
+                    //toolStripButton_createText.BackColor = Color.Yellow;
+                    DrawingModel.getInstance().GetLast().endX = e.X;
+                    DrawingModel.getInstance().GetLast().endY = e.Y;
+                    DrawPanel.Invalidate();
+                    break;
 
                 default:
                     break;
@@ -551,7 +602,7 @@ namespace PhotoPaint
 
         private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
             var dlg = new OpenFileDialog();
             dlg.Filter = "";
             ImageCodecInfo[] codecs = ImageCodecInfo.GetImageEncoders();
@@ -576,7 +627,7 @@ namespace PhotoPaint
                 DrawPanel.Height = toOpen.Height;
                 toolStripTextBox_width.Text = $"{toOpen.Width}";
                 toolStripTextBox_height.Text = $"{toOpen.Height}";
-                
+
 
                 DrawPanel.Invalidate();
             }
@@ -586,7 +637,7 @@ namespace PhotoPaint
                 return;
             }
         }
-        
+
 
         private void предварительныйпросмотрToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -739,7 +790,7 @@ namespace PhotoPaint
         public int height_panel = 500;
         public Color backColor_panel = Color.LightGray;
 
-        enum DrawMode { None, Point, Line, Ellipse, Rectangle, Text };
+        enum DrawMode { None, Point, Line, Ellipse, Rectangle, Text, DragImg };
         DrawMode CurrentDraw = DrawMode.None;
         bool isDrawing = false;
 
@@ -762,6 +813,9 @@ namespace PhotoPaint
         static int lastposX = 3;
         static int lastposY = 3;
 
+        public Bitmap LoadTempImg;
+        bool isLoadTempImg = false;
+        
         public Color hatchColor;
 
         public string TextureBmp;

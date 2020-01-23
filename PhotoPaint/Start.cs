@@ -133,8 +133,7 @@ namespace PhotoPaint
                 }
             }
             if(delImg)
-            {
-              
+            {              
                 SolidBrush solid = new SolidBrush(Color.DimGray);
                 Rectangle r = new Rectangle(10, 215, 180, 120);
                 g.FillRectangle(solid, r);

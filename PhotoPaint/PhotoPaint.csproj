@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChangeSizeimg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeSizeimg.Designer.cs">
+      <DependentUpon>ChangeSizeimg.cs</DependentUpon>
+    </Compile>
     <Compile Include="FillGradient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +96,15 @@
     <Compile Include="Start.Designer.cs">
       <DependentUpon>Start.cs</DependentUpon>
     </Compile>
+    <Compile Include="Test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test.Designer.cs">
+      <DependentUpon>Test.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ChangeSizeimg.resx">
+      <DependentUpon>ChangeSizeimg.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FillGradient.resx">
       <DependentUpon>FillGradient.cs</DependentUpon>
     </EmbeddedResource>
@@ -112,6 +127,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Start.resx">
       <DependentUpon>Start.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test.resx">
+      <DependentUpon>Test.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

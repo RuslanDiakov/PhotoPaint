@@ -53,10 +53,12 @@ namespace PhotoPaint
         {
             try
             {
-                return $"Цвет обводки: {pen.Color.ToString()} | Толщина: {pen.Width.ToString()}" +
-                $" | Заливка: {solidG}";
+                return $"Слой";
             }
-            catch { return "Text - " + newText; }
+            catch
+            {
+                return "Слой";
+            }
         }
 
         /// <summary>
@@ -216,6 +218,9 @@ namespace PhotoPaint
             }
         }
 
+        /// <summary>
+        /// Точка / перо
+        /// </summary>
         public class Point_figure : Primitives
         {
             public override void Paint(Graphics g)
@@ -227,6 +232,26 @@ namespace PhotoPaint
                 point1.Y = point2.Y;
             }
         }
+
+        /// <summary>
+        /// Картинка
+        /// </summary>
+        public class Img_figure : Primitives
+        {
+            public override string ToString()
+            {
+                return $"Изображение | Размеры: {LoadTempImg.Size}";
+            }
+
+            public override void Paint(Graphics g)
+            {
+                PointF point = new PointF(endX, endY);
+                g.DrawImage(LoadTempImg, point);
+            }
+        }
+
+
+
 
         public class DrawingModel
         {
@@ -389,6 +414,18 @@ namespace PhotoPaint
                 allDraw.Add(r1);
             }
 
+            /// <summary>
+            /// Создание картинки DragDrop
+            /// </summary>
+            /// <param name="frm"></param>
+            public void CreateImg(Main frm)
+            {
+                Img_figure r1 = new Img_figure();
+                r1.endX = frm.endX; r1.endY = frm.endY;
+                r1.LoadTempImg = frm.LoadTempImg;
+                allDraw.Add(r1);
+            }
+
             public void saveToXml(string filename)
             {
                 using (FileStream fs = new FileStream(filename, FileMode.Create))
@@ -495,7 +532,7 @@ namespace PhotoPaint
         public Color lgbTo = Color.Red;
         public float lgbPos = 0;
 
-
+        Bitmap LoadTempImg;
 
         // Заливка фигуры 1 цветом
         public Color solidG = Color.Red;
