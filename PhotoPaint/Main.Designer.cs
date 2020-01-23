@@ -50,16 +50,14 @@
             this.сохранитькакToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.правкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отменадействияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.выделитьвсеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.повторДействияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сервисToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.параметрыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.СправкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip_Brush = new System.Windows.Forms.ToolStrip();
             this.toolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStrip4 = new System.Windows.Forms.ToolStrip();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
+            this.toolStrip4 = new System.Windows.Forms.ToolStrip();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStrip3 = new System.Windows.Forms.ToolStrip();
             this.создатьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,8 +65,6 @@
             this.печатьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.открытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.предварительныйпросмотрToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.вырезатьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.копироватьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.вставкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButton_none = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton_createPoint = new System.Windows.Forms.ToolStripButton();
@@ -110,17 +106,16 @@
             this.toolStripButton_PenFillColor = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton_PenFillGradient = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton_setTexP = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton_ShowLayers = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton_fillDrawPanel = new System.Windows.Forms.ToolStripButton();
-            this.повторДействияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripButton_ShowLayers = new System.Windows.Forms.ToolStripButton();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.toolStrip_Brush.SuspendLayout();
-            this.toolStrip4.SuspendLayout();
             this.toolStrip.SuspendLayout();
+            this.toolStrip4.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.toolStrip3.SuspendLayout();
             this.SuspendLayout();
@@ -192,8 +187,8 @@
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip_Brush);
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip4);
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip);
-            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip3);
             this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip2);
+            this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.toolStrip3);
             this.toolStripContainer1.TopToolStripPanel.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
             // 
             // vScrollBar1
@@ -344,12 +339,7 @@
             this.правкаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.отменадействияToolStripMenuItem,
             this.повторДействияToolStripMenuItem,
-            this.toolStripSeparator3,
-            this.вырезатьToolStripMenuItem,
-            this.копироватьToolStripMenuItem,
-            this.вставкаToolStripMenuItem,
-            this.toolStripSeparator4,
-            this.выделитьвсеToolStripMenuItem});
+            this.вставкаToolStripMenuItem});
             this.правкаToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.правкаToolStripMenuItem.Name = "правкаToolStripMenuItem";
             this.правкаToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
@@ -357,49 +347,50 @@
             // 
             // отменадействияToolStripMenuItem
             // 
+            this.отменадействияToolStripMenuItem.BackColor = System.Drawing.Color.DimGray;
+            this.отменадействияToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.отменадействияToolStripMenuItem.Name = "отменадействияToolStripMenuItem";
             this.отменадействияToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
             this.отменадействияToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
             this.отменадействияToolStripMenuItem.Text = "&Отмена действия";
             this.отменадействияToolStripMenuItem.Click += new System.EventHandler(this.отменадействияToolStripMenuItem_Click);
             // 
-            // toolStripSeparator3
+            // повторДействияToolStripMenuItem
             // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(206, 6);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(206, 6);
-            // 
-            // выделитьвсеToolStripMenuItem
-            // 
-            this.выделитьвсеToolStripMenuItem.Name = "выделитьвсеToolStripMenuItem";
-            this.выделитьвсеToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
-            this.выделитьвсеToolStripMenuItem.Text = "Выделить &все";
+            this.повторДействияToolStripMenuItem.BackColor = System.Drawing.Color.DimGray;
+            this.повторДействияToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.повторДействияToolStripMenuItem.Name = "повторДействияToolStripMenuItem";
+            this.повторДействияToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.повторДействияToolStripMenuItem.Text = "Повтор действия";
+            this.повторДействияToolStripMenuItem.Click += new System.EventHandler(this.повторДействияToolStripMenuItem_Click);
             // 
             // сервисToolStripMenuItem
             // 
             this.сервисToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.настройкиToolStripMenuItem,
-            this.параметрыToolStripMenuItem});
+            this.оПрограммеToolStripMenuItem,
+            this.СправкаToolStripMenuItem});
             this.сервисToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.сервисToolStripMenuItem.Name = "сервисToolStripMenuItem";
             this.сервисToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.сервисToolStripMenuItem.Text = "&Сервис";
             // 
-            // настройкиToolStripMenuItem
+            // оПрограммеToolStripMenuItem
             // 
-            this.настройкиToolStripMenuItem.Name = "настройкиToolStripMenuItem";
-            this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
-            this.настройкиToolStripMenuItem.Text = "&Настройки";
+            this.оПрограммеToolStripMenuItem.BackColor = System.Drawing.Color.DimGray;
+            this.оПрограммеToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.оПрограммеToolStripMenuItem.Text = "&О программе";
+            this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
             // 
-            // параметрыToolStripMenuItem
+            // СправкаToolStripMenuItem
             // 
-            this.параметрыToolStripMenuItem.Name = "параметрыToolStripMenuItem";
-            this.параметрыToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
-            this.параметрыToolStripMenuItem.Text = "&Параметры";
+            this.СправкаToolStripMenuItem.BackColor = System.Drawing.Color.DimGray;
+            this.СправкаToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.СправкаToolStripMenuItem.Name = "СправкаToolStripMenuItem";
+            this.СправкаToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.СправкаToolStripMenuItem.Text = "&Справка";
+            this.СправкаToolStripMenuItem.Click += new System.EventHandler(this.СправкаToolStripMenuItem_Click);
             // 
             // toolStrip_Brush
             // 
@@ -415,7 +406,7 @@
             this.toolStripTextBox});
             this.toolStrip_Brush.Location = new System.Drawing.Point(3, 24);
             this.toolStrip_Brush.Name = "toolStrip_Brush";
-            this.toolStrip_Brush.Size = new System.Drawing.Size(324, 38);
+            this.toolStrip_Brush.Size = new System.Drawing.Size(355, 38);
             this.toolStrip_Brush.TabIndex = 1;
             // 
             // toolStripTextBox
@@ -427,19 +418,6 @@
             this.toolStripTextBox.Text = "Sample Text";
             this.toolStripTextBox.TextChanged += new System.EventHandler(this.toolStripTextBox_TextChanged);
             // 
-            // toolStrip4
-            // 
-            this.toolStrip4.BackColor = System.Drawing.Color.DimGray;
-            this.toolStrip4.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStrip4.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStrip_StartPen,
-            this.ts_DashStyle,
-            this.toolStrip_EndPen});
-            this.toolStrip4.Location = new System.Drawing.Point(329, 24);
-            this.toolStrip4.Name = "toolStrip4";
-            this.toolStrip4.Size = new System.Drawing.Size(147, 38);
-            this.toolStrip4.TabIndex = 5;
-            // 
             // toolStrip
             // 
             this.toolStrip.BackColor = System.Drawing.Color.DimGray;
@@ -450,10 +428,23 @@
             this.toolStripButton_PenFillColor,
             this.toolStripButton_PenFillGradient,
             this.toolStripButton_setTexP});
-            this.toolStrip.Location = new System.Drawing.Point(476, 24);
+            this.toolStrip.Location = new System.Drawing.Point(505, 24);
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.Size = new System.Drawing.Size(197, 38);
             this.toolStrip.TabIndex = 2;
+            // 
+            // toolStrip4
+            // 
+            this.toolStrip4.BackColor = System.Drawing.Color.DimGray;
+            this.toolStrip4.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip4.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStrip_StartPen,
+            this.ts_DashStyle,
+            this.toolStrip_EndPen});
+            this.toolStrip4.Location = new System.Drawing.Point(358, 24);
+            this.toolStrip4.Name = "toolStrip4";
+            this.toolStrip4.Size = new System.Drawing.Size(147, 38);
+            this.toolStrip4.TabIndex = 5;
             // 
             // toolStrip2
             // 
@@ -461,7 +452,7 @@
             this.toolStrip2.Dock = System.Windows.Forms.DockStyle.None;
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton_fillDrawPanel});
-            this.toolStrip2.Location = new System.Drawing.Point(721, 24);
+            this.toolStrip2.Location = new System.Drawing.Point(702, 24);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.Size = new System.Drawing.Size(47, 38);
             this.toolStrip2.TabIndex = 3;
@@ -472,7 +463,7 @@
             this.toolStrip3.Dock = System.Windows.Forms.DockStyle.None;
             this.toolStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton_ShowLayers});
-            this.toolStrip3.Location = new System.Drawing.Point(673, 24);
+            this.toolStrip3.Location = new System.Drawing.Point(749, 24);
             this.toolStrip3.Name = "toolStrip3";
             this.toolStrip3.Size = new System.Drawing.Size(47, 38);
             this.toolStrip3.TabIndex = 4;
@@ -535,32 +526,17 @@
             this.предварительныйпросмотрToolStripMenuItem.Text = "Предварительный про&смотр";
             this.предварительныйпросмотрToolStripMenuItem.Click += new System.EventHandler(this.предварительныйпросмотрToolStripMenuItem_Click);
             // 
-            // вырезатьToolStripMenuItem
-            // 
-            this.вырезатьToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("вырезатьToolStripMenuItem.Image")));
-            this.вырезатьToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.вырезатьToolStripMenuItem.Name = "вырезатьToolStripMenuItem";
-            this.вырезатьToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.вырезатьToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
-            this.вырезатьToolStripMenuItem.Text = "Вырезат&ь";
-            // 
-            // копироватьToolStripMenuItem
-            // 
-            this.копироватьToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("копироватьToolStripMenuItem.Image")));
-            this.копироватьToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.копироватьToolStripMenuItem.Name = "копироватьToolStripMenuItem";
-            this.копироватьToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.копироватьToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
-            this.копироватьToolStripMenuItem.Text = "&Копировать";
-            // 
             // вставкаToolStripMenuItem
             // 
+            this.вставкаToolStripMenuItem.BackColor = System.Drawing.Color.DimGray;
+            this.вставкаToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.вставкаToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("вставкаToolStripMenuItem.Image")));
             this.вставкаToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.вставкаToolStripMenuItem.Name = "вставкаToolStripMenuItem";
             this.вставкаToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
             this.вставкаToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
             this.вставкаToolStripMenuItem.Text = "Вст&авка";
+            this.вставкаToolStripMenuItem.Click += new System.EventHandler(this.вставкаToolStripMenuItem_Click);
             // 
             // toolStripButton_none
             // 
@@ -662,7 +638,7 @@
             this.StartCap_type1.Image = global::PhotoPaint.Properties.Resources.NoAnchor;
             this.StartCap_type1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.StartCap_type1.Name = "StartCap_type1";
-            this.StartCap_type1.Size = new System.Drawing.Size(188, 42);
+            this.StartCap_type1.Size = new System.Drawing.Size(199, 42);
             this.StartCap_type1.Text = "NoAnchor";
             this.StartCap_type1.Click += new System.EventHandler(this.StartCap_type6_Click);
             // 
@@ -674,7 +650,7 @@
             this.StartCap_type2.Image = global::PhotoPaint.Properties.Resources.ArrowAnchor;
             this.StartCap_type2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.StartCap_type2.Name = "StartCap_type2";
-            this.StartCap_type2.Size = new System.Drawing.Size(188, 42);
+            this.StartCap_type2.Size = new System.Drawing.Size(199, 42);
             this.StartCap_type2.Text = "ArrowAnchor";
             this.StartCap_type2.Click += new System.EventHandler(this.StartCap_type2_Click);
             // 
@@ -686,7 +662,7 @@
             this.StartCap_type3.Image = global::PhotoPaint.Properties.Resources.Round;
             this.StartCap_type3.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.StartCap_type3.Name = "StartCap_type3";
-            this.StartCap_type3.Size = new System.Drawing.Size(188, 42);
+            this.StartCap_type3.Size = new System.Drawing.Size(199, 42);
             this.StartCap_type3.Text = "Round";
             this.StartCap_type3.Click += new System.EventHandler(this.StartCap_type3_Click_1);
             // 
@@ -698,7 +674,7 @@
             this.StartCap_type4.Image = global::PhotoPaint.Properties.Resources.DiamondAnchor;
             this.StartCap_type4.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.StartCap_type4.Name = "StartCap_type4";
-            this.StartCap_type4.Size = new System.Drawing.Size(188, 42);
+            this.StartCap_type4.Size = new System.Drawing.Size(199, 42);
             this.StartCap_type4.Text = "DiamondAnchor";
             this.StartCap_type4.Click += new System.EventHandler(this.StartCap_type4_Click);
             // 
@@ -710,7 +686,7 @@
             this.StartCap_type5.Image = global::PhotoPaint.Properties.Resources.RoundAnchor;
             this.StartCap_type5.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.StartCap_type5.Name = "StartCap_type5";
-            this.StartCap_type5.Size = new System.Drawing.Size(188, 42);
+            this.StartCap_type5.Size = new System.Drawing.Size(199, 42);
             this.StartCap_type5.Text = "RoundAnchor";
             this.StartCap_type5.Click += new System.EventHandler(this.StartCap_type8_Click);
             // 
@@ -722,7 +698,7 @@
             this.StartCap_type6.Image = global::PhotoPaint.Properties.Resources.SquareAnchor;
             this.StartCap_type6.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.StartCap_type6.Name = "StartCap_type6";
-            this.StartCap_type6.Size = new System.Drawing.Size(188, 42);
+            this.StartCap_type6.Size = new System.Drawing.Size(199, 42);
             this.StartCap_type6.Text = "SquareAnchor";
             this.StartCap_type6.Click += new System.EventHandler(this.StartCap_type10_Click);
             // 
@@ -734,7 +710,7 @@
             this.StartCap_type7.Image = global::PhotoPaint.Properties.Resources.Triangle;
             this.StartCap_type7.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.StartCap_type7.Name = "StartCap_type7";
-            this.StartCap_type7.Size = new System.Drawing.Size(188, 42);
+            this.StartCap_type7.Size = new System.Drawing.Size(199, 42);
             this.StartCap_type7.Text = "Triangle";
             this.StartCap_type7.Click += new System.EventHandler(this.StartCap_type7_Click_1);
             // 
@@ -763,7 +739,7 @@
             this.DashStyle_Solid.Image = global::PhotoPaint.Properties.Resources.DS_solid;
             this.DashStyle_Solid.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.DashStyle_Solid.Name = "DashStyle_Solid";
-            this.DashStyle_Solid.Size = new System.Drawing.Size(165, 42);
+            this.DashStyle_Solid.Size = new System.Drawing.Size(199, 42);
             this.DashStyle_Solid.Text = "Solid";
             this.DashStyle_Solid.Click += new System.EventHandler(this.DashStyle_Solid_Click);
             // 
@@ -775,7 +751,7 @@
             this.DashStyle_Dash.Image = global::PhotoPaint.Properties.Resources.DS_Dash;
             this.DashStyle_Dash.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.DashStyle_Dash.Name = "DashStyle_Dash";
-            this.DashStyle_Dash.Size = new System.Drawing.Size(165, 42);
+            this.DashStyle_Dash.Size = new System.Drawing.Size(199, 42);
             this.DashStyle_Dash.Text = "Dash";
             this.DashStyle_Dash.Click += new System.EventHandler(this.DashStyle_Dash_Click);
             // 
@@ -787,7 +763,7 @@
             this.DashStyle_DashDot.Image = global::PhotoPaint.Properties.Resources.DS_DashDot;
             this.DashStyle_DashDot.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.DashStyle_DashDot.Name = "DashStyle_DashDot";
-            this.DashStyle_DashDot.Size = new System.Drawing.Size(165, 42);
+            this.DashStyle_DashDot.Size = new System.Drawing.Size(199, 42);
             this.DashStyle_DashDot.Text = "DashDot";
             this.DashStyle_DashDot.Click += new System.EventHandler(this.DashStyle_DashDot_Click);
             // 
@@ -799,7 +775,7 @@
             this.DashStyle_Dash_Dot_Dot.Image = global::PhotoPaint.Properties.Resources.DS_DashDotDot;
             this.DashStyle_Dash_Dot_Dot.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.DashStyle_Dash_Dot_Dot.Name = "DashStyle_Dash_Dot_Dot";
-            this.DashStyle_Dash_Dot_Dot.Size = new System.Drawing.Size(165, 42);
+            this.DashStyle_Dash_Dot_Dot.Size = new System.Drawing.Size(199, 42);
             this.DashStyle_Dash_Dot_Dot.Text = "DashDotDot";
             this.DashStyle_Dash_Dot_Dot.Click += new System.EventHandler(this.DashStyle_Dash_Dot_Dot_Click);
             // 
@@ -811,7 +787,7 @@
             this.DashStyle_Dot.Image = global::PhotoPaint.Properties.Resources.DS_Dot;
             this.DashStyle_Dot.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.DashStyle_Dot.Name = "DashStyle_Dot";
-            this.DashStyle_Dot.Size = new System.Drawing.Size(165, 42);
+            this.DashStyle_Dot.Size = new System.Drawing.Size(199, 42);
             this.DashStyle_Dot.Text = "Dot";
             this.DashStyle_Dot.Click += new System.EventHandler(this.DashStyle_Dot_Click);
             // 
@@ -1051,18 +1027,6 @@
             this.toolStripButton_setTexP.Text = "Задать параметры текста";
             this.toolStripButton_setTexP.Click += new System.EventHandler(this.toolStripButton_setTexP_Click);
             // 
-            // toolStripButton_ShowLayers
-            // 
-            this.toolStripButton_ShowLayers.AutoSize = false;
-            this.toolStripButton_ShowLayers.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton_ShowLayers.Image = global::PhotoPaint.Properties.Resources.layer3;
-            this.toolStripButton_ShowLayers.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripButton_ShowLayers.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton_ShowLayers.Name = "toolStripButton_ShowLayers";
-            this.toolStripButton_ShowLayers.Size = new System.Drawing.Size(35, 35);
-            this.toolStripButton_ShowLayers.Text = "Слои";
-            this.toolStripButton_ShowLayers.Click += new System.EventHandler(this.toolStripButton_ShowLayers_Click);
-            // 
             // toolStripButton_fillDrawPanel
             // 
             this.toolStripButton_fillDrawPanel.AutoSize = false;
@@ -1075,12 +1039,17 @@
             this.toolStripButton_fillDrawPanel.Text = "Заливка фона";
             this.toolStripButton_fillDrawPanel.Click += new System.EventHandler(this.toolStripButton_fillDrawPanel_Click);
             // 
-            // повторДействияToolStripMenuItem
+            // toolStripButton_ShowLayers
             // 
-            this.повторДействияToolStripMenuItem.Name = "повторДействияToolStripMenuItem";
-            this.повторДействияToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
-            this.повторДействияToolStripMenuItem.Text = "Повтор действия";
-            this.повторДействияToolStripMenuItem.Click += new System.EventHandler(this.повторДействияToolStripMenuItem_Click);
+            this.toolStripButton_ShowLayers.AutoSize = false;
+            this.toolStripButton_ShowLayers.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton_ShowLayers.Image = global::PhotoPaint.Properties.Resources.layer3;
+            this.toolStripButton_ShowLayers.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButton_ShowLayers.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton_ShowLayers.Name = "toolStripButton_ShowLayers";
+            this.toolStripButton_ShowLayers.Size = new System.Drawing.Size(35, 35);
+            this.toolStripButton_ShowLayers.Text = "Слои";
+            this.toolStripButton_ShowLayers.Click += new System.EventHandler(this.toolStripButton_ShowLayers_Click);
             // 
             // Main
             // 
@@ -1109,10 +1078,10 @@
             this.menuStrip1.PerformLayout();
             this.toolStrip_Brush.ResumeLayout(false);
             this.toolStrip_Brush.PerformLayout();
-            this.toolStrip4.ResumeLayout(false);
-            this.toolStrip4.PerformLayout();
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
+            this.toolStrip4.ResumeLayout(false);
+            this.toolStrip4.PerformLayout();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
             this.toolStrip3.ResumeLayout(false);
@@ -1134,15 +1103,9 @@
         private System.Windows.Forms.ToolStripMenuItem предварительныйпросмотрToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem правкаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem отменадействияToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripMenuItem вырезатьToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem копироватьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem вставкаToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.ToolStripMenuItem выделитьвсеToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem сервисToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem настройкиToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem параметрыToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
         private System.Windows.Forms.ToolStripPanel BottomToolStripPanel;
         private System.Windows.Forms.ToolStripPanel TopToolStripPanel;
         private System.Windows.Forms.ToolStripPanel RightToolStripPanel;
@@ -1206,5 +1169,6 @@
         private System.Windows.Forms.ToolStripMenuItem DashStyle_Dot;
         private System.Windows.Forms.ToolStripLabel Bottom_lable_straight;
         private System.Windows.Forms.ToolStripMenuItem повторДействияToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem СправкаToolStripMenuItem;
     }
 }

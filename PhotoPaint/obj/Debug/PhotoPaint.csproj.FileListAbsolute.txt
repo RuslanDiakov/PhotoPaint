@@ -13,3 +13,4 @@ C:\Users\Core100\source\repos\PhotoPaint\PhotoPaint\obj\Debug\PhotoPaint.csprojA
 C:\Users\Core100\source\repos\PhotoPaint\PhotoPaint\obj\Debug\PhotoPaint.Preview.resources
 C:\Users\Core100\source\repos\PhotoPaint\PhotoPaint\obj\Debug\PhotoPaint.LayersForm.resources
 C:\Users\Core100\source\repos\PhotoPaint\PhotoPaint\obj\Debug\PhotoPaint.ChangeSizeimg.resources
+C:\Users\Core100\source\repos\PhotoPaint\PhotoPaint\obj\Debug\PhotoPaint.HelpAbout.resources

@@ -73,6 +73,12 @@ namespace PhotoPaint
             cb_backColor.SelectedIndex = 3;
         }
 
+        private void button_help_Click(object sender, EventArgs e)
+        {
+            HelpAbout helpAbout = new HelpAbout();
+            helpAbout.ShowDialog();
+        }
+
         private void button_exit_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -198,6 +204,8 @@ namespace PhotoPaint
         }
 
 
-        #endregion             
+        #endregion
+
+       
     }
 }

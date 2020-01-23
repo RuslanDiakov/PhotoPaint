@@ -119,16 +119,15 @@ namespace PhotoPaint
         {
             string[] s = (string[])e.Data.GetData(DataFormats.FileDrop);
             LoadTempImg = new Bitmap(s[0]);
-            if (LoadTempImg.Size != DrawPanel.Size)
-            {
-                ChangeSizeimg changeF = new ChangeSizeimg(DrawPanel.Width, DrawPanel.Height, LoadTempImg.Width, LoadTempImg.Height);               
-                if (changeF.ShowDialog() != DialogResult.OK) return;
-                DrawPanel.Width = changeF.w_f;
-                DrawPanel.Height = changeF.h_f;
-                int w_i = changeF.w_i;
-                int h_i = changeF.h_i;
-                LoadTempImg = new Bitmap(LoadTempImg, w_i, h_i);
-            }
+
+            ChangeSizeimg changeF = new ChangeSizeimg(DrawPanel.Width, DrawPanel.Height, LoadTempImg.Width, LoadTempImg.Height);
+            if (changeF.ShowDialog() != DialogResult.OK) return;
+            DrawPanel.Width = changeF.w_f;
+            DrawPanel.Height = changeF.h_f;
+            int w_i = changeF.w_i;
+            int h_i = changeF.h_i;
+            LoadTempImg = new Bitmap(LoadTempImg, w_i, h_i);
+
             isLoadTempImg = true;
             CurrentDraw = DrawMode.DragImg;
             DrawPanel.Invalidate();
@@ -343,10 +342,11 @@ namespace PhotoPaint
 
                 case DrawMode.Text:
                     DrawingModel.getInstance().CreateText(this);
-                    // DrawPanel.Invalidate();DragImg
+                    DrawPanel.Invalidate();
                     break;
 
                 case DrawMode.DragImg:
+                    startX += LoadTempImg.Width/2; startY += LoadTempImg.Height/2;
                     DrawingModel.getInstance().CreateImg(this);
                     break;
 
@@ -438,16 +438,33 @@ namespace PhotoPaint
                     break;
 
                 case DrawMode.DragImg:
-                    if (DrawingModel.getInstance().GetLast() == null) break;
+                    if (DrawingModel.getInstance().GetLast() == null) break;     
                     //toolStripButton_createText.BackColor = Color.Yellow;
-                    DrawingModel.getInstance().GetLast().endX = e.X;
-                    DrawingModel.getInstance().GetLast().endY = e.Y;
+                    DrawingModel.getInstance().GetLast().endX = e.X- LoadTempImg.Width / 2;
+                    DrawingModel.getInstance().GetLast().endY = e.Y- LoadTempImg.Height / 2;
                     DrawPanel.Invalidate();
                     break;
 
                 default:
                     break;
             }
+        }
+
+        #endregion
+
+        #region Сервис
+
+        private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Photo Paint — многофункциональный, растровый графический редактор. \n" +
+                "Версия: 0.6 \n" +
+                "Автор: Дьяков Руслан", "Про PhotoPaint");
+        }
+
+        private void СправкаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HelpAbout helpAbout = new HelpAbout();
+            helpAbout.ShowDialog();
         }
 
         #endregion
@@ -655,14 +672,48 @@ namespace PhotoPaint
 
         private void отменадействияToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(DrawingModel.getInstance().canUndo())
-            DrawingModel.getInstance().undo2();
+            if (DrawingModel.getInstance().canUndo())
+                DrawingModel.getInstance().undo2();
             DrawPanel.Invalidate();
         }
+
         private void повторДействияToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (DrawingModel.getInstance().canRedo())
                 DrawingModel.getInstance().redo();
+            DrawPanel.Invalidate();
+        }
+
+        private void вставкаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var dlg = new OpenFileDialog();
+            dlg.Filter = "";
+            ImageCodecInfo[] codecs = ImageCodecInfo.GetImageEncoders();
+            string sep = string.Empty;
+
+            foreach (var c in codecs)
+            {
+                string codecName = c.CodecName.Substring(8).Replace("Codec", "Files").Trim();
+                dlg.Filter = String.Format("{0}{1}{2} ({3})|{3}", dlg.Filter, sep, codecName, c.FilenameExtension);
+                sep = "|";
+            }
+
+            dlg.Filter = String.Format("{0}{1}{2} ({3})|{3}", dlg.Filter, sep, "All Files", "*.*");
+            dlg.DefaultExt = ".png";
+
+            if (dlg.ShowDialog() != DialogResult.OK) return;
+            LoadTempImg = new Bitmap(dlg.FileName);
+
+            ChangeSizeimg changeF = new ChangeSizeimg(DrawPanel.Width, DrawPanel.Height, LoadTempImg.Width, LoadTempImg.Height);
+            if (changeF.ShowDialog() != DialogResult.OK) return;
+            DrawPanel.Width = changeF.w_f;
+            DrawPanel.Height = changeF.h_f;
+            int w_i = changeF.w_i;
+            int h_i = changeF.h_i;
+            LoadTempImg = new Bitmap(LoadTempImg, w_i, h_i);
+
+            isLoadTempImg = true;
+            CurrentDraw = DrawMode.DragImg;
             DrawPanel.Invalidate();
         }
 
@@ -794,7 +845,6 @@ namespace PhotoPaint
         #endregion
 
 
-
         #region Переменные
 
         public Start startForm;
@@ -828,7 +878,7 @@ namespace PhotoPaint
         public Bitmap LoadTempImg;
         bool isLoadTempImg = false;
 
-        
+
 
         public Color hatchColor;
 

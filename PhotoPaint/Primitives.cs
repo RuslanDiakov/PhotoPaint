@@ -190,8 +190,12 @@ namespace PhotoPaint
                              break;
                          }*/
 
-                        LinearGradientBrush lgb = new LinearGradientBrush(r, lgbFrom, lgbTo, lgbPos, true);
-                        g.DrawString(newText, newFont, lgb, drawPoint);
+                        try
+                        {
+                            LinearGradientBrush lgb = new LinearGradientBrush(r, lgbFrom, lgbTo, lgbPos, true);
+                            g.DrawString(newText, newFont, lgb, drawPoint);
+                        }
+                        catch { }
                         break;
 
                     case GradientType.Solid:

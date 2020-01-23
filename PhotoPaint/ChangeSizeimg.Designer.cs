@@ -30,21 +30,21 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChangeSizeimg));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.b_f_minus = new System.Windows.Forms.Button();
+            this.b_f_plus = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tb_h_f = new System.Windows.Forms.TextBox();
             this.tb_w_f = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.b_i_minus = new System.Windows.Forms.Button();
+            this.b_i_plus = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.tb_w_i = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tb_h_i = new System.Windows.Forms.TextBox();
             this.b_ok = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.b_i_minus = new System.Windows.Forms.Button();
-            this.b_i_plus = new System.Windows.Forms.Button();
-            this.b_f_minus = new System.Windows.Forms.Button();
-            this.b_f_plus = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -65,6 +65,28 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Размер формы";
+            // 
+            // b_f_minus
+            // 
+            this.b_f_minus.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.b_f_minus.Image = global::PhotoPaint.Properties.Resources.Shift;
+            this.b_f_minus.Location = new System.Drawing.Point(131, 107);
+            this.b_f_minus.Name = "b_f_minus";
+            this.b_f_minus.Size = new System.Drawing.Size(30, 30);
+            this.b_f_minus.TabIndex = 11;
+            this.b_f_minus.UseVisualStyleBackColor = true;
+            this.b_f_minus.Click += new System.EventHandler(this.b_f_minus_Click);
+            // 
+            // b_f_plus
+            // 
+            this.b_f_plus.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.b_f_plus.Image = global::PhotoPaint.Properties.Resources.expand2;
+            this.b_f_plus.Location = new System.Drawing.Point(131, 71);
+            this.b_f_plus.Name = "b_f_plus";
+            this.b_f_plus.Size = new System.Drawing.Size(30, 30);
+            this.b_f_plus.TabIndex = 10;
+            this.b_f_plus.UseVisualStyleBackColor = true;
+            this.b_f_plus.Click += new System.EventHandler(this.b_f_plus_Click);
             // 
             // label2
             // 
@@ -120,6 +142,28 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Размер изображения";
+            // 
+            // b_i_minus
+            // 
+            this.b_i_minus.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.b_i_minus.Image = global::PhotoPaint.Properties.Resources.Shift;
+            this.b_i_minus.Location = new System.Drawing.Point(131, 107);
+            this.b_i_minus.Name = "b_i_minus";
+            this.b_i_minus.Size = new System.Drawing.Size(30, 30);
+            this.b_i_minus.TabIndex = 9;
+            this.b_i_minus.UseVisualStyleBackColor = true;
+            this.b_i_minus.Click += new System.EventHandler(this.b_i_minus_Click);
+            // 
+            // b_i_plus
+            // 
+            this.b_i_plus.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.b_i_plus.Image = global::PhotoPaint.Properties.Resources.expand2;
+            this.b_i_plus.Location = new System.Drawing.Point(131, 71);
+            this.b_i_plus.Name = "b_i_plus";
+            this.b_i_plus.Size = new System.Drawing.Size(30, 30);
+            this.b_i_plus.TabIndex = 8;
+            this.b_i_plus.UseVisualStyleBackColor = true;
+            this.b_i_plus.Click += new System.EventHandler(this.b_i_plus_Click);
             // 
             // label4
             // 
@@ -177,55 +221,11 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(30, 9);
+            this.label3.Location = new System.Drawing.Point(61, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(320, 40);
+            this.label3.Size = new System.Drawing.Size(244, 40);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Размер изображения больше чем холст! \r\n     Вы можете изменить размеры!";
-            // 
-            // b_i_minus
-            // 
-            this.b_i_minus.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.b_i_minus.Image = global::PhotoPaint.Properties.Resources.Shift;
-            this.b_i_minus.Location = new System.Drawing.Point(131, 107);
-            this.b_i_minus.Name = "b_i_minus";
-            this.b_i_minus.Size = new System.Drawing.Size(30, 30);
-            this.b_i_minus.TabIndex = 9;
-            this.b_i_minus.UseVisualStyleBackColor = true;
-            this.b_i_minus.Click += new System.EventHandler(this.b_i_minus_Click);
-            // 
-            // b_i_plus
-            // 
-            this.b_i_plus.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.b_i_plus.Image = global::PhotoPaint.Properties.Resources.expand2;
-            this.b_i_plus.Location = new System.Drawing.Point(131, 71);
-            this.b_i_plus.Name = "b_i_plus";
-            this.b_i_plus.Size = new System.Drawing.Size(30, 30);
-            this.b_i_plus.TabIndex = 8;
-            this.b_i_plus.UseVisualStyleBackColor = true;
-            this.b_i_plus.Click += new System.EventHandler(this.b_i_plus_Click);
-            // 
-            // b_f_minus
-            // 
-            this.b_f_minus.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.b_f_minus.Image = global::PhotoPaint.Properties.Resources.Shift;
-            this.b_f_minus.Location = new System.Drawing.Point(131, 107);
-            this.b_f_minus.Name = "b_f_minus";
-            this.b_f_minus.Size = new System.Drawing.Size(30, 30);
-            this.b_f_minus.TabIndex = 11;
-            this.b_f_minus.UseVisualStyleBackColor = true;
-            this.b_f_minus.Click += new System.EventHandler(this.b_f_minus_Click);
-            // 
-            // b_f_plus
-            // 
-            this.b_f_plus.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.b_f_plus.Image = global::PhotoPaint.Properties.Resources.expand2;
-            this.b_f_plus.Location = new System.Drawing.Point(131, 71);
-            this.b_f_plus.Name = "b_f_plus";
-            this.b_f_plus.Size = new System.Drawing.Size(30, 30);
-            this.b_f_plus.TabIndex = 10;
-            this.b_f_plus.UseVisualStyleBackColor = true;
-            this.b_f_plus.Click += new System.EventHandler(this.b_f_plus_Click);
+            this.label3.Text = "Перед вставкой изображения\r\nВы можете изменить размеры!";
             // 
             // ChangeSizeimg
             // 

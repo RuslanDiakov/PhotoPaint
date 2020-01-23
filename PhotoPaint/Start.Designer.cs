@@ -32,13 +32,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button_create = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button_m_6 = new System.Windows.Forms.Button();
-            this.button_m_5 = new System.Windows.Forms.Button();
-            this.button_m_4 = new System.Windows.Forms.Button();
-            this.button_m_3 = new System.Windows.Forms.Button();
-            this.button_m_2 = new System.Windows.Forms.Button();
-            this.button_m_1 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button_clear = new System.Windows.Forms.Button();
             this.button_open = new System.Windows.Forms.Button();
             this.button_exit = new System.Windows.Forms.Button();
             this.button_checkBackColor = new System.Windows.Forms.Button();
@@ -48,7 +43,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button_clear = new System.Windows.Forms.Button();
+            this.button_help = new System.Windows.Forms.Button();
+            this.button_m_6 = new System.Windows.Forms.Button();
+            this.button_m_5 = new System.Windows.Forms.Button();
+            this.button_m_4 = new System.Windows.Forms.Button();
+            this.button_m_3 = new System.Windows.Forms.Button();
+            this.button_m_2 = new System.Windows.Forms.Button();
+            this.button_m_1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -97,75 +98,10 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Заготовки";
             // 
-            // button_m_6
-            // 
-            this.button_m_6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button_m_6.Image = global::PhotoPaint.Properties.Resources._1500x800;
-            this.button_m_6.Location = new System.Drawing.Point(122, 252);
-            this.button_m_6.Name = "button_m_6";
-            this.button_m_6.Size = new System.Drawing.Size(110, 110);
-            this.button_m_6.TabIndex = 5;
-            this.button_m_6.UseVisualStyleBackColor = true;
-            this.button_m_6.Click += new System.EventHandler(this.button_m_6_Click);
-            // 
-            // button_m_5
-            // 
-            this.button_m_5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button_m_5.Image = ((System.Drawing.Image)(resources.GetObject("button_m_5.Image")));
-            this.button_m_5.Location = new System.Drawing.Point(6, 251);
-            this.button_m_5.Name = "button_m_5";
-            this.button_m_5.Size = new System.Drawing.Size(110, 110);
-            this.button_m_5.TabIndex = 4;
-            this.button_m_5.UseVisualStyleBackColor = true;
-            this.button_m_5.Click += new System.EventHandler(this.button_m_5_Click);
-            // 
-            // button_m_4
-            // 
-            this.button_m_4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button_m_4.Image = global::PhotoPaint.Properties.Resources._1000x500;
-            this.button_m_4.Location = new System.Drawing.Point(122, 135);
-            this.button_m_4.Name = "button_m_4";
-            this.button_m_4.Size = new System.Drawing.Size(110, 110);
-            this.button_m_4.TabIndex = 3;
-            this.button_m_4.UseVisualStyleBackColor = true;
-            this.button_m_4.Click += new System.EventHandler(this.button_m_4_Click);
-            // 
-            // button_m_3
-            // 
-            this.button_m_3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button_m_3.Image = global::PhotoPaint.Properties.Resources._200x200;
-            this.button_m_3.Location = new System.Drawing.Point(6, 135);
-            this.button_m_3.Name = "button_m_3";
-            this.button_m_3.Size = new System.Drawing.Size(110, 110);
-            this.button_m_3.TabIndex = 2;
-            this.button_m_3.UseVisualStyleBackColor = true;
-            this.button_m_3.Click += new System.EventHandler(this.button_m_3_Click);
-            // 
-            // button_m_2
-            // 
-            this.button_m_2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button_m_2.Image = global::PhotoPaint.Properties.Resources._50x50;
-            this.button_m_2.Location = new System.Drawing.Point(122, 19);
-            this.button_m_2.Name = "button_m_2";
-            this.button_m_2.Size = new System.Drawing.Size(110, 110);
-            this.button_m_2.TabIndex = 1;
-            this.button_m_2.UseVisualStyleBackColor = true;
-            this.button_m_2.Click += new System.EventHandler(this.button_m_2_Click);
-            // 
-            // button_m_1
-            // 
-            this.button_m_1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button_m_1.Image = global::PhotoPaint.Properties.Resources._100x100;
-            this.button_m_1.Location = new System.Drawing.Point(6, 19);
-            this.button_m_1.Name = "button_m_1";
-            this.button_m_1.Size = new System.Drawing.Size(110, 110);
-            this.button_m_1.TabIndex = 0;
-            this.button_m_1.UseVisualStyleBackColor = true;
-            this.button_m_1.Click += new System.EventHandler(this.button_m_1_Click);
-            // 
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.DimGray;
+            this.groupBox2.Controls.Add(this.button_help);
             this.groupBox2.Controls.Add(this.button_clear);
             this.groupBox2.Controls.Add(this.button_open);
             this.groupBox2.Controls.Add(this.button_exit);
@@ -186,6 +122,20 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Настраиваемый";
             this.groupBox2.Paint += new System.Windows.Forms.PaintEventHandler(this.groupBox2_Paint);
+            // 
+            // button_clear
+            // 
+            this.button_clear.BackColor = System.Drawing.Color.OrangeRed;
+            this.button_clear.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button_clear.Font = new System.Drawing.Font("Myriad Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_clear.ForeColor = System.Drawing.Color.White;
+            this.button_clear.Location = new System.Drawing.Point(97, 181);
+            this.button_clear.Name = "button_clear";
+            this.button_clear.Size = new System.Drawing.Size(97, 26);
+            this.button_clear.TabIndex = 11;
+            this.button_clear.Text = "Очистить";
+            this.button_clear.UseVisualStyleBackColor = false;
+            this.button_clear.Click += new System.EventHandler(this.button_clear_Click);
             // 
             // button_open
             // 
@@ -295,19 +245,84 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Ширина";
             // 
-            // button_clear
+            // button_help
             // 
-            this.button_clear.BackColor = System.Drawing.Color.OrangeRed;
-            this.button_clear.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button_clear.Font = new System.Drawing.Font("Myriad Pro", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_clear.ForeColor = System.Drawing.Color.White;
-            this.button_clear.Location = new System.Drawing.Point(97, 181);
-            this.button_clear.Name = "button_clear";
-            this.button_clear.Size = new System.Drawing.Size(97, 26);
-            this.button_clear.TabIndex = 11;
-            this.button_clear.Text = "Очистить";
-            this.button_clear.UseVisualStyleBackColor = false;
-            this.button_clear.Click += new System.EventHandler(this.button_clear_Click);
+            this.button_help.BackColor = System.Drawing.Color.SlateGray;
+            this.button_help.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button_help.Font = new System.Drawing.Font("Myriad Pro", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_help.Image = global::PhotoPaint.Properties.Resources.help;
+            this.button_help.Location = new System.Drawing.Point(87, 344);
+            this.button_help.Name = "button_help";
+            this.button_help.Size = new System.Drawing.Size(26, 25);
+            this.button_help.TabIndex = 12;
+            this.button_help.UseVisualStyleBackColor = false;
+            this.button_help.Click += new System.EventHandler(this.button_help_Click);
+            // 
+            // button_m_6
+            // 
+            this.button_m_6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button_m_6.Image = global::PhotoPaint.Properties.Resources._1500x800;
+            this.button_m_6.Location = new System.Drawing.Point(122, 252);
+            this.button_m_6.Name = "button_m_6";
+            this.button_m_6.Size = new System.Drawing.Size(110, 110);
+            this.button_m_6.TabIndex = 5;
+            this.button_m_6.UseVisualStyleBackColor = true;
+            this.button_m_6.Click += new System.EventHandler(this.button_m_6_Click);
+            // 
+            // button_m_5
+            // 
+            this.button_m_5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button_m_5.Image = ((System.Drawing.Image)(resources.GetObject("button_m_5.Image")));
+            this.button_m_5.Location = new System.Drawing.Point(6, 251);
+            this.button_m_5.Name = "button_m_5";
+            this.button_m_5.Size = new System.Drawing.Size(110, 110);
+            this.button_m_5.TabIndex = 4;
+            this.button_m_5.UseVisualStyleBackColor = true;
+            this.button_m_5.Click += new System.EventHandler(this.button_m_5_Click);
+            // 
+            // button_m_4
+            // 
+            this.button_m_4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button_m_4.Image = global::PhotoPaint.Properties.Resources._1000x500;
+            this.button_m_4.Location = new System.Drawing.Point(122, 135);
+            this.button_m_4.Name = "button_m_4";
+            this.button_m_4.Size = new System.Drawing.Size(110, 110);
+            this.button_m_4.TabIndex = 3;
+            this.button_m_4.UseVisualStyleBackColor = true;
+            this.button_m_4.Click += new System.EventHandler(this.button_m_4_Click);
+            // 
+            // button_m_3
+            // 
+            this.button_m_3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button_m_3.Image = global::PhotoPaint.Properties.Resources._200x200;
+            this.button_m_3.Location = new System.Drawing.Point(6, 135);
+            this.button_m_3.Name = "button_m_3";
+            this.button_m_3.Size = new System.Drawing.Size(110, 110);
+            this.button_m_3.TabIndex = 2;
+            this.button_m_3.UseVisualStyleBackColor = true;
+            this.button_m_3.Click += new System.EventHandler(this.button_m_3_Click);
+            // 
+            // button_m_2
+            // 
+            this.button_m_2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button_m_2.Image = global::PhotoPaint.Properties.Resources._50x50;
+            this.button_m_2.Location = new System.Drawing.Point(122, 19);
+            this.button_m_2.Name = "button_m_2";
+            this.button_m_2.Size = new System.Drawing.Size(110, 110);
+            this.button_m_2.TabIndex = 1;
+            this.button_m_2.UseVisualStyleBackColor = true;
+            this.button_m_2.Click += new System.EventHandler(this.button_m_2_Click);
+            // 
+            // button_m_1
+            // 
+            this.button_m_1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button_m_1.Image = global::PhotoPaint.Properties.Resources._100x100;
+            this.button_m_1.Location = new System.Drawing.Point(6, 19);
+            this.button_m_1.Name = "button_m_1";
+            this.button_m_1.Size = new System.Drawing.Size(110, 110);
+            this.button_m_1.TabIndex = 0;
+            this.button_m_1.UseVisualStyleBackColor = true;
+            this.button_m_1.Click += new System.EventHandler(this.button_m_1_Click);
             // 
             // Start
             // 
@@ -357,5 +372,6 @@
         private System.Windows.Forms.Button button_exit;
         private System.Windows.Forms.Button button_open;
         private System.Windows.Forms.Button button_clear;
+        private System.Windows.Forms.Button button_help;
     }
 }

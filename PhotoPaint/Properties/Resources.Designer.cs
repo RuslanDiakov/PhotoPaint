@@ -103,6 +103,16 @@ namespace PhotoPaint.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _2_вкладка {
+            get {
+                object obj = ResourceManager.GetObject("2 вкладка", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _200x200 {
             get {
                 object obj = ResourceManager.GetObject("200x200", resourceCulture);
@@ -313,6 +323,16 @@ namespace PhotoPaint.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap help {
+            get {
+                object obj = ResourceManager.GetObject("help", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap layer {
             get {
                 object obj = ResourceManager.GetObject("layer", resourceCulture);
@@ -466,6 +486,16 @@ namespace PhotoPaint.Properties {
         internal static System.Drawing.Bitmap SquareAnchor2 {
             get {
                 object obj = ResourceManager.GetObject("SquareAnchor2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Start {
+            get {
+                object obj = ResourceManager.GetObject("Start", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -836,6 +866,16 @@ namespace PhotoPaint.Properties {
         internal static System.Drawing.Bitmap z9 {
             get {
                 object obj = ResourceManager.GetObject("z9", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap примеры {
+            get {
+                object obj = ResourceManager.GetObject("примеры", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
