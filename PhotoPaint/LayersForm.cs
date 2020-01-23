@@ -29,6 +29,7 @@ namespace PhotoPaint
             int number = lb_layers.SelectedIndex;
             temp.Add(temp[number]);
             temp.RemoveAt(number);
+            lb_layers.DataSource = null;
             lb_layers.DataSource = temp;
             DrawingModel.getInstance().allDraw = temp;
             lb_layers.Invalidate();
@@ -42,6 +43,7 @@ namespace PhotoPaint
                 int number = lb_layers.SelectedIndex;
                 temp.Insert(number + 2, temp[number]);
                 temp.RemoveAt(number);
+                lb_layers.DataSource = null;
                 lb_layers.DataSource = temp;
                 DrawingModel.getInstance().allDraw = temp;
                 lb_layers.Invalidate();
@@ -55,7 +57,8 @@ namespace PhotoPaint
             int number = lb_layers.SelectedIndex;
             temp.Insert(0, temp[number]);
             temp.RemoveAt(number + 1);
-            lb_layers.DataSource = temp;            
+            lb_layers.DataSource = null;
+            lb_layers.DataSource = temp;
             DrawingModel.getInstance().allDraw = temp;
 
             lb_layers.Invalidate();
@@ -69,9 +72,10 @@ namespace PhotoPaint
                 int number = lb_layers.SelectedIndex;
                 temp.Insert(number - 1, temp[number]);
                 temp.RemoveAt(number + 1);
+                lb_layers.DataSource = null;
                 lb_layers.DataSource = temp;
                 DrawingModel.getInstance().allDraw = temp;
-                
+
                 lb_layers.Invalidate();
                 panel.Invalidate();
             }
@@ -81,6 +85,33 @@ namespace PhotoPaint
         private void b_save_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
+        }
+
+        private void b_del_Click(object sender, EventArgs e)
+        {
+            if (DrawingModel.getInstance().canDel())
+            {
+                DrawingModel.getInstance().Del(lb_layers.SelectedIndex);
+                temp.RemoveAt(lb_layers.SelectedIndex);
+                lb_layers.DataSource = null;
+                lb_layers.DataSource = temp;
+                lb_layers.Refresh();
+                panel.Invalidate();
+            }
+        }
+
+        private void b_del_all_Click(object sender, EventArgs e)
+        {
+            if (DrawingModel.getInstance().canDel())
+            {
+                DrawingModel.getInstance().allDraw.Clear();
+                temp.Clear();
+
+                lb_layers.DataSource = null;
+                lb_layers.DataSource = temp;
+                lb_layers.Refresh();
+                panel.Invalidate();
+            }
         }
     }
 }

@@ -456,6 +456,17 @@ namespace PhotoPaint
                 allDraw.RemoveAt(allDraw.Count - 1);
             }
 
+            public bool canDel()
+            {
+                if (allDraw.Count > 0) return true;
+                return false;
+            }
+
+            public void Del(int i)
+            {
+                allDraw.RemoveAt(i);
+            }
+
             Main form = new Main();
 
             public void delete(int i)
@@ -465,13 +476,14 @@ namespace PhotoPaint
 
             public bool canRedo()
             {
-                if (allDraw.Count > 0) return true;
+                if (undoElement.Count > 0) return true;
                 return false;
             }
 
             public void redo()
             {
-                // allDraw.Add(allDraw.Last<Primitives>);
+                allDraw.Add(undoElement.LastOrDefault());
+                undoElement.Remove(undoElement.LastOrDefault());
             }
 
             #region Слои

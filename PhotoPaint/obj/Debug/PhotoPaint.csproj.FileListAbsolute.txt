@@ -12,5 +12,4 @@ C:\Users\Core100\source\repos\PhotoPaint\PhotoPaint\obj\Debug\PhotoPaint.FillGra
 C:\Users\Core100\source\repos\PhotoPaint\PhotoPaint\obj\Debug\PhotoPaint.csprojAssemblyReference.cache
 C:\Users\Core100\source\repos\PhotoPaint\PhotoPaint\obj\Debug\PhotoPaint.Preview.resources
 C:\Users\Core100\source\repos\PhotoPaint\PhotoPaint\obj\Debug\PhotoPaint.LayersForm.resources
-C:\Users\Core100\source\repos\PhotoPaint\PhotoPaint\obj\Debug\PhotoPaint.Test.resources
 C:\Users\Core100\source\repos\PhotoPaint\PhotoPaint\obj\Debug\PhotoPaint.ChangeSizeimg.resources

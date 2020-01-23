@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static PhotoPaint.Primitives;
 
@@ -125,6 +119,16 @@ namespace PhotoPaint
         {
             string[] s = (string[])e.Data.GetData(DataFormats.FileDrop);
             LoadTempImg = new Bitmap(s[0]);
+            if (LoadTempImg.Size != DrawPanel.Size)
+            {
+                ChangeSizeimg changeF = new ChangeSizeimg(DrawPanel.Width, DrawPanel.Height, LoadTempImg.Width, LoadTempImg.Height);               
+                if (changeF.ShowDialog() != DialogResult.OK) return;
+                DrawPanel.Width = changeF.w_f;
+                DrawPanel.Height = changeF.h_f;
+                int w_i = changeF.w_i;
+                int h_i = changeF.h_i;
+                LoadTempImg = new Bitmap(LoadTempImg, w_i, h_i);
+            }
             isLoadTempImg = true;
             CurrentDraw = DrawMode.DragImg;
             DrawPanel.Invalidate();
@@ -648,10 +652,18 @@ namespace PhotoPaint
         #endregion
 
         #region Меню правка
-        private void очиститьВсёToolStripMenuItem_Click(object sender, EventArgs e)
+
+        private void отменадействияToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-
+            if(DrawingModel.getInstance().canUndo())
+            DrawingModel.getInstance().undo2();
+            DrawPanel.Invalidate();
+        }
+        private void повторДействияToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (DrawingModel.getInstance().canRedo())
+                DrawingModel.getInstance().redo();
+            DrawPanel.Invalidate();
         }
 
         #endregion
@@ -815,7 +827,9 @@ namespace PhotoPaint
 
         public Bitmap LoadTempImg;
         bool isLoadTempImg = false;
+
         
+
         public Color hatchColor;
 
         public string TextureBmp;

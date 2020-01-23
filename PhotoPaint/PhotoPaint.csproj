@@ -96,12 +96,6 @@
     <Compile Include="Start.Designer.cs">
       <DependentUpon>Start.cs</DependentUpon>
     </Compile>
-    <Compile Include="Test.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Test.Designer.cs">
-      <DependentUpon>Test.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="ChangeSizeimg.resx">
       <DependentUpon>ChangeSizeimg.cs</DependentUpon>
     </EmbeddedResource>
@@ -127,9 +121,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Start.resx">
       <DependentUpon>Start.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Test.resx">
-      <DependentUpon>Test.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -175,6 +166,9 @@
     <None Include="Resources\DS_DashDot.jpg" />
     <None Include="Resources\DS_DashDotDot.jpg" />
     <None Include="Resources\DS_Dot.jpg" />
+    <None Include="Resources\expand1.jpg" />
+    <None Include="Resources\expand2.jpg" />
+    <None Include="Resources\Shift.jpg" />
     <Content Include="Resources\z2.1.jpg" />
     <Content Include="Resources\z2.10.jpg" />
     <Content Include="Resources\z2.2.jpg" />

@@ -37,6 +37,8 @@
             this.b_down = new System.Windows.Forms.Button();
             this.b_up1 = new System.Windows.Forms.Button();
             this.b_up = new System.Windows.Forms.Button();
+            this.b_del = new System.Windows.Forms.Button();
+            this.b_del_all = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -69,6 +71,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.b_del_all);
+            this.groupBox2.Controls.Add(this.b_del);
             this.groupBox2.Controls.Add(this.b_save);
             this.groupBox2.Controls.Add(this.b_down1);
             this.groupBox2.Controls.Add(this.b_down);
@@ -143,6 +147,30 @@
             this.b_up.UseVisualStyleBackColor = false;
             this.b_up.Click += new System.EventHandler(this.b_up_Click);
             // 
+            // b_del
+            // 
+            this.b_del.BackColor = System.Drawing.Color.Firebrick;
+            this.b_del.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.b_del.Location = new System.Drawing.Point(6, 268);
+            this.b_del.Name = "b_del";
+            this.b_del.Size = new System.Drawing.Size(118, 26);
+            this.b_del.TabIndex = 5;
+            this.b_del.Text = "Удалить";
+            this.b_del.UseVisualStyleBackColor = false;
+            this.b_del.Click += new System.EventHandler(this.b_del_Click);
+            // 
+            // b_del_all
+            // 
+            this.b_del_all.BackColor = System.Drawing.Color.Firebrick;
+            this.b_del_all.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.b_del_all.Location = new System.Drawing.Point(6, 300);
+            this.b_del_all.Name = "b_del_all";
+            this.b_del_all.Size = new System.Drawing.Size(118, 26);
+            this.b_del_all.TabIndex = 6;
+            this.b_del_all.Text = "Удалить все";
+            this.b_del_all.UseVisualStyleBackColor = false;
+            this.b_del_all.Click += new System.EventHandler(this.b_del_all_Click);
+            // 
             // LayersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -173,5 +201,7 @@
         private System.Windows.Forms.Button b_down;
         private System.Windows.Forms.Button b_up1;
         private System.Windows.Forms.Button b_up;
+        private System.Windows.Forms.Button b_del;
+        private System.Windows.Forms.Button b_del_all;
     }
 }

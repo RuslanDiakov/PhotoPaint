@@ -243,6 +243,26 @@ namespace PhotoPaint.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap expand1 {
+            get {
+                object obj = ResourceManager.GetObject("expand1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap expand2 {
+            get {
+                object obj = ResourceManager.GetObject("expand2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap fill {
             get {
                 object obj = ResourceManager.GetObject("fill", resourceCulture);
@@ -416,6 +436,16 @@ namespace PhotoPaint.Properties {
         internal static System.Drawing.Bitmap RoundAnchor2 {
             get {
                 object obj = ResourceManager.GetObject("RoundAnchor2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Shift {
+            get {
+                object obj = ResourceManager.GetObject("Shift", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
