@@ -373,61 +373,61 @@ namespace PhotoPaint
 
         private void z_img_1_Click(object sender, EventArgs e)
         {
-            TextureBmp = "C:\\Users\\Core100\\source\\repos\\PhotoPaint\\PhotoPaint\\Resources\\z3.1.jpg";
+            TextureBmp = @"texturesImg\z3.1.jpg";
             groupBox8.Invalidate();
         }
 
         private void z_img_2_Click(object sender, EventArgs e)
         {
-            TextureBmp = "C:\\Users\\Core100\\source\\repos\\PhotoPaint\\PhotoPaint\\Resources\\z3.2.jpg";
+            TextureBmp = @"texturesImg\z3.2.jpg";
             groupBox8.Invalidate();
         }
 
         private void z_img_3_Click(object sender, EventArgs e)
         {
-            TextureBmp = "C:\\Users\\Core100\\source\\repos\\PhotoPaint\\PhotoPaint\\Resources\\z3.3.jpg";
+            TextureBmp = @"texturesImg\z3.3.jpg";
             groupBox8.Invalidate();
         }
 
         private void z_img_4_Click(object sender, EventArgs e)
         {
-            TextureBmp = "C:\\Users\\Core100\\source\\repos\\PhotoPaint\\PhotoPaint\\Resources\\z3.4.jpg";
+            TextureBmp = @"texturesImg\z3.4.jpg";
             groupBox8.Invalidate();
         }
 
         private void z_img_5_Click(object sender, EventArgs e)
         {
-            TextureBmp = "C:\\Users\\Core100\\source\\repos\\PhotoPaint\\PhotoPaint\\Resources\\z3.5.jpg";
+            TextureBmp = @"texturesImg\z3.5.jpg";
             groupBox8.Invalidate();
         }
 
         private void z_img_6_Click(object sender, EventArgs e)
         {
-            TextureBmp = "C:\\Users\\Core100\\source\\repos\\PhotoPaint\\PhotoPaint\\Resources\\z3.6.jpg";
+            TextureBmp = @"texturesImg\z3.6.jpg";
             groupBox8.Invalidate();
         }
 
         private void z_img_7_Click(object sender, EventArgs e)
         {
-            TextureBmp = "C:\\Users\\Core100\\source\\repos\\PhotoPaint\\PhotoPaint\\Resources\\z3.7.jpg";
+            TextureBmp = @"texturesImg\z3.7.jpg";
             groupBox8.Invalidate();
         }
 
         private void z_img_8_Click(object sender, EventArgs e)
         {
-            TextureBmp = "C:\\Users\\Core100\\source\\repos\\PhotoPaint\\PhotoPaint\\Resources\\z3.8.jpg";
+            TextureBmp = @"texturesImg\z3.8.jpg";
             groupBox8.Invalidate();
         }
 
         private void z_img_9_Click(object sender, EventArgs e)
         {
-            TextureBmp = "C:\\Users\\Core100\\source\\repos\\PhotoPaint\\PhotoPaint\\Resources\\z3.9.jpg";
+            TextureBmp = @"texturesImg\z3.9.jpg";
             groupBox8.Invalidate();
         }
 
         private void z_img_10_Click(object sender, EventArgs e)
         {
-            TextureBmp = "C:\\Users\\Core100\\source\\repos\\PhotoPaint\\PhotoPaint\\Resources\\z3.10.jpg";
+            TextureBmp = @"texturesImg\z3.10.jpg";
             groupBox8.Invalidate();
         }
 
