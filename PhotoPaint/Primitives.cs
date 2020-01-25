@@ -13,6 +13,14 @@ namespace PhotoPaint
 {
     [Serializable]
     [XmlInclude(typeof(Ellipse))]
+
+    [XmlInclude(typeof(Rectangle_figure))]
+
+    [XmlInclude(typeof(Line_figure))]
+
+    [XmlInclude(typeof(Text_figure))]
+
+    [XmlInclude(typeof(Img_figure))]
     public class Primitives
     {
 
@@ -43,6 +51,15 @@ namespace PhotoPaint
                 pen.Width = value;
             }
         }
+        [XmlElement("TextXML")]
+        public int TextXML
+        {
+            get { return solidG.ToArgb(); }
+            set
+            {
+                solidG = Color.FromArgb(value);
+            }
+        }
 
         public virtual void Paint(Graphics g)
         {
@@ -64,6 +81,7 @@ namespace PhotoPaint
         /// <summary>
         /// Елипс
         /// </summary>
+       
         public class Ellipse : Primitives
         {
             public override string ToString()
@@ -104,6 +122,7 @@ namespace PhotoPaint
         /// <summary>
         /// Прямоугольник
         /// </summary>
+        //[XmlInclude(typeof(Rectangle_figure))]
         public class Rectangle_figure : Primitives
         {
             public override string ToString()
@@ -538,6 +557,7 @@ namespace PhotoPaint
         public Pen pen { get; set; }
         [XmlIgnore]
         public Brush brush { get; set; } = new SolidBrush(Color.Black);
+        [XmlIgnore]
         public Font newFont { get; set; } = new Font("Arial", 20);
         public String newText { get; set; } = "Sample Text";
 

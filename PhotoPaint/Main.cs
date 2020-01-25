@@ -95,7 +95,6 @@ namespace PhotoPaint
             //}
         }
 
-
         #region DragDrog
 
         private void DrawPanel_DragEnter(object sender, DragEventArgs e)
@@ -575,10 +574,29 @@ namespace PhotoPaint
             f.FileName = "new";
             f.Filter = "*.xml| *.xml";
             if (f.ShowDialog() != DialogResult.OK) return;
-
+           // DrawingModel.getInstance().saveToXml(f.FileName);
             try
             {
                 DrawingModel.getInstance().saveToXml(f.FileName);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void открытьXMLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string fName = "";
+            var f = new OpenFileDialog();
+            f.Filter = "*.xml| *.xml";
+
+            if (f.ShowDialog() != DialogResult.OK) return;
+            try
+            {
+                fName = f.FileName;
+                DrawingModel.getInstance().loadToXml(fName);
+                DrawPanel.Invalidate();
             }
             catch (Exception ex)
             {
@@ -628,6 +646,8 @@ namespace PhotoPaint
             dlg.Filter = "";
             ImageCodecInfo[] codecs = ImageCodecInfo.GetImageEncoders();
             string sep = string.Empty;
+
+            
 
             foreach (var c in codecs)
             {
@@ -878,7 +898,7 @@ namespace PhotoPaint
         public Bitmap LoadTempImg;
         bool isLoadTempImg = false;
 
-
+       
 
         public Color hatchColor;
 

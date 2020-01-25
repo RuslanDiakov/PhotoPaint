@@ -212,6 +212,12 @@
     <None Include="Resources\Shift.jpg" />
     <None Include="Resources\Start.jpg" />
     <None Include="Resources\help.jpg" />
+    <None Include="Resources\width1.jpg" />
+    <None Include="Resources\width2.jpg" />
+    <None Include="Resources\width3.jpg" />
+    <None Include="Resources\width4.jpg" />
+    <None Include="Resources\width5.jpg" />
+    <None Include="Resources\width6.jpg" />
     <Content Include="Resources\z2.1.jpg" />
     <Content Include="Resources\z2.10.jpg" />
     <Content Include="Resources\z2.2.jpg" />

@@ -145,8 +145,8 @@
   <data name="none" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\none.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Round" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Round.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DiamondAnchor2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DiamondAnchor2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="1280x720" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1280x720.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -178,8 +178,8 @@
   <data name="z2.4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\z2.4.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="gradient" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\gradient.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="width1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\width1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="z2.3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\z2.3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -204,9 +204,6 @@
   </data>
   <data name="width" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\width.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="DiamondAnchor2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DiamondAnchor2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="200x200" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\200x200.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -237,6 +234,9 @@
   </data>
   <data name="transparent" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\transparent.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="width3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\width3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="z2.1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\z2.1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -283,6 +283,12 @@
   <data name="SquareAnchor" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SquareAnchor.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="width4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\width4.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="примеры" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\примеры.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="z3.10" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\z3.10.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -292,6 +298,9 @@
   <data name="Round2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Round2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="gradient" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gradient.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="z7" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\z7.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -300,6 +309,9 @@
   </data>
   <data name="layer3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\layer3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="width5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\width5.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="DiamondAnchor" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DiamondAnchor.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -321,6 +333,9 @@
   </data>
   <data name="Text2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Text2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="width2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\width2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="point" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\point.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -346,6 +361,9 @@
   <data name="rect" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\rect.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Round" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Round.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="DS_Dot" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DS_Dot.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -361,7 +379,7 @@
   <data name="z2.5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\z2.5.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="примеры" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\примеры.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="width6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\width6.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
